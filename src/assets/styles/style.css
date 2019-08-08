@@ -1,6 +1,6 @@
 /* ------------------------------------------------
  Author: ArtStyles (Art)
- 
+
  Template Name: vCard
  version: 1.0.1
 ------------------------------------------------ */
@@ -13,14 +13,14 @@
    - Select
    - Button
    - Dropdown
-   
+
  - Typography
  - Preloader
- 
+
  - Menu
    - Hamburger
    - Nav
-   
+
  - Shared
    - Container
    - Box
@@ -29,24 +29,24 @@
    - Social
    - Badges
    - Tooltips
-   
+
  - Sidebar
    - Contact list
-   
+
  - Cases
 
  - Testimonials
    - Carousel pagination
-   
+
  - Clients
  - Timeline
  - Progress
- 
+
  - Portfolio
    - Filter
-    
+
  - News
- 
+
  - Single post
    - Comments
    - Comment form
@@ -54,16 +54,16 @@
    - Scroll Indicator
    - niceScroll
    - Social auth
-  
+
  - Footer
- 
+
  - Contact
    - Map
-   
+
  - Other
    - Bact to top
    - Medium Zoom
-  
+
 ------------------------------------------------ */
 @import url(bootstrap.min.css);
 @import url(swiper.min.css);
@@ -1409,7 +1409,6 @@ iframe {
   margin-bottom: .5rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 @media only screen and (max-width: 1200px) {
   .contacts-block__item {
@@ -1444,11 +1443,12 @@ iframe {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -moz-box;
-  display: flex;
+  display: grid;
   height: calc(100% - 1.875rem);
   margin-bottom: 1.875rem;
   padding: 1.875rem 1.875rem 1.5rem;
   position: relative;
+  text-align: center;
 }
 @media only screen and (max-width: 992px) {
   .case-item {
@@ -1466,14 +1466,18 @@ iframe {
   margin-right: 1.2rem;
   height: 2.5rem;
   width: 2.5rem;
+  margin: auto;
 }
-@media only screen and (max-width: 580px) {
+/* @media only screen and (max-width: 580px) {
   .case-item__icon {
     margin-right: 1.2rem;
     height: 1.5rem;
     width: 1.5rem;
+    width: 50px !important;
+    height: 50px !important;
+    margin: auto;
   }
-}
+} */
 .case-item div {
   flex: 1;
 }

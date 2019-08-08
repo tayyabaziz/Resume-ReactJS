@@ -1,23 +1,18 @@
 import React from 'react';
-import logo_file from './file/favicon.png';
 import Preloader from './components/Preloader';
 import BacktoTop from './components/BacktoTop';
 import SVG from './components/SVG';
-import About from './views/About';
-
-import './assets/styles/style.css';
-import './assets/demo/style-demo.css';
-
-import 'jquery';
-import 'bootstrap';
-import 'popper.js';
-import './assets/js/common.js';
+import Content from './views/Content';
+import cookie from 'react-cookies';
 
 function App() {
+  cookie.save('dark', false);
   return (
     <React.Fragment>
       <Preloader />
-      <About />
+      <main className="main">
+        <Content />
+      </main>
       <BacktoTop />
       <SVG />
     </React.Fragment>
