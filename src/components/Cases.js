@@ -1,9 +1,6 @@
 import React from 'react';
 import CaseItem from './CaseItem'
-import icon_design from "../assets/icons/icon-design.svg";
 import icon_dev from "../assets/icons/icon-dev.svg";
-import icon_app from "../assets/icons/icon-app.svg";
-import icon_photo from "../assets/icons/icon-photo.svg";
 
 function Cases(data) {
     return (
