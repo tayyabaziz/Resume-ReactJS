@@ -9,12 +9,12 @@ function CaseItem(data) {
         title = <h3 className="title title--h5">{data.title}</h3>;
     }
     if (data.icon){
-        icon = <img className="img-fluid case-item__icon" src={data.icon} alt="" />;
+        icon = <img className="case-item__icon" src={data.icon} alt="" />;
     }
     return (
         <React.Fragment>
             {/*Case Item*/}
-            < div className="col" >
+            < div className="col col-sm-6 col-md-4" >
                 <div className="case-item box box__second">
                     {icon}
                     <div>

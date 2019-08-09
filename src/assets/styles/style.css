@@ -1352,12 +1352,13 @@ iframe {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -moz-box;
-  display: grid;
+  /* display: grid; */
+  display: flex;
   height: calc(100% - 1.875rem);
   margin-bottom: 1.875rem;
   padding: 1.875rem 1.875rem 1.5rem;
   position: relative;
-  text-align: center;
+  /* text-align: center; */
 }
 @media only screen and (max-width: 992px) {
   .case-item {
@@ -1375,7 +1376,7 @@ iframe {
   margin-right: 1.2rem;
   height: 2.5rem;
   width: 2.5rem;
-  margin: auto;
+  /* margin: auto; */
 }
 /* @media only screen and (max-width: 580px) {
   .case-item__icon {

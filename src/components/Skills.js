@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Progress from "./Progress";
 
+import $ from "jquery";
+import ScrollMagic from "scrollmagic";
+
 function Skills(data) {
+    useEffect(() => {
+        progressBar()
+    });
+
+    function progressBar() {
+        $('.progress').each(function () {
+            var ctrl = new ScrollMagic.Controller();
+            new ScrollMagic.Scene({
+                triggerElement: '.progress',
+                triggerHook: 'onEnter',
+                duration: 300
+            })
+                .addTo(ctrl)
+                .on("enter", function (e) {
+                    var progressBar = $('.progress-bar');
+                    progressBar.each(function (indx) {
+                        $(this).css({ 'width': $(this).attr('aria-valuenow') + '%', 'z-index': '2' });
+                    });
+                });
+        });
+    }
     return (
         <React.Fragment>
             {/* Skills*/}
-            <div className="box-inner box-inner--rounded">
+            <div  className="box-inner box-inner--rounded">
                 <div className="row">
                     <div className="col-12 col-lg-6">
                         <h2 className="title title--h3">Skills</h2>
