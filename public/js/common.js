@@ -6,13 +6,13 @@
 
 $(document).ready(function() {
 
-    'use strict';
+
 
     /*-----------------------------------------------------------------
       Detect device mobile
     -------------------------------------------------------------------*/
-	
-    var isMobile = false; 
+
+    var isMobile = false;
     if( /Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         $('html').addClass('touch');
         isMobile = true;
@@ -21,8 +21,8 @@ $(document).ready(function() {
         $('html').addClass('no-touch');
         isMobile = false;
     }
-	
-	
+
+
     /*-----------------------------------------------------------------
       Loaded
     -------------------------------------------------------------------*/
@@ -61,7 +61,7 @@ $(document).ready(function() {
 
         tl.duration(tweenTime).play();
         console.log(tl.endTime());
-			
+
 		return tl;
 	};
 
@@ -75,12 +75,12 @@ $(document).ready(function() {
 	    $('.inner-menu').toggleClass('is-active');
 		$('body').toggleClass('open-menu');
     });
-	
-	
+
+
     /*-----------------------------------------------------------------
       Nav
     -------------------------------------------------------------------*/
-  
+
     var $sideNavOpen = $('.hamburger');
     var tl = new TimelineMax({paused:true, reversed:true});
 
@@ -101,7 +101,7 @@ $(document).ready(function() {
                 x: 70,
                 ease: Back.easeOut
             },0.06, '-=0.5');
-        }); 
+        });
     } else {
         $('.js-menu').each(function(i) {
             tl.timeScale(1);
@@ -116,21 +116,21 @@ $(document).ready(function() {
                 x: 70,
                 ease: Back.easeOut
             },0.06, '-=0.25');
-        });  
+        });
     }
-  
+
     $sideNavOpen.on('click', function() {
-        tl.reversed() ? tl.play() : tl.reverse();	
+        tl.reversed() ? tl.play() : tl.reverse();
     });
 
-	
+
     /*-----------------------------------------------------------------
       Carousel
-    -------------------------------------------------------------------*/	
-    
+    -------------------------------------------------------------------*/
+
 	// Testimonials
 	$('.js-carousel-review').each(function() {
-		var carousel = new Swiper('.js-carousel-review', {
+		new Swiper('.js-carousel-review', {
             slidesPerView: 2,
 			spaceBetween: 30,
 			//loop: true,
@@ -151,10 +151,10 @@ $(document).ready(function() {
             }
 		});
 	});
-	
+
 	// Clients
 	$('.js-carousel-clients').each(function() {
-		var carousel = new Swiper('.js-carousel-clients', {
+		new Swiper('.js-carousel-clients', {
             slidesPerView: 4,
 			spaceBetween: 30,
 			//loop: true,
@@ -168,11 +168,11 @@ $(document).ready(function() {
                 320: {
                     slidesPerView: 1,
                     spaceBetween: 0
-                },				
+                },
                 580: {
                     slidesPerView: 2,
                     spaceBetween: 30
-                },				
+                },
                 991: {
                     slidesPerView: 3,
                     spaceBetween: 30
@@ -180,8 +180,8 @@ $(document).ready(function() {
             }
 		});
 	});
-	
-	
+
+
     /*-----------------------------------------------------------------
       Sticky sidebar
     -------------------------------------------------------------------*/
@@ -212,7 +212,11 @@ $(document).ready(function() {
     var screen = 1200;
 
     var windowHeight, windowWidth;
+    windowHeight = $(window).height();
     windowWidth = $(window).width();
+    if (windowHeight) {
+
+    }
     if ((windowWidth < screen)) {
         detachStickyKit();
     } else {
@@ -256,7 +260,7 @@ $(document).ready(function() {
     /*-----------------------------------------------------------------
       Progress bar
     -------------------------------------------------------------------*/
-    
+
 	function progressBar() {
 	    $('.progress').each(function() {
 		    var ctrl = new ScrollMagic.Controller();
@@ -274,32 +278,32 @@ $(document).ready(function() {
 		    });
         });
     }
-	
-	
+
+
     /*-----------------------------------------------------------------
       Scroll indicator
     -------------------------------------------------------------------*/
-  
+
     function scrollIndicator() {
         $(window).on('scroll', function() {
-            var wintop = $(window).scrollTop(), docheight = 
+            var wintop = $(window).scrollTop(), docheight =
             $(document).height(), winheight = $(window).height();
  	        var scrolled = (wintop/(docheight-winheight))*100;
   	        $('.scroll-line').css('width', (scrolled + '%'));
         });
     }
-	
+
 	scrollIndicator(); //Init
-	
-	
+
+
     /*-----------------------------------------------------------------
       ScrollTo
     -------------------------------------------------------------------*/
-	
+
     function scrollToTop() {
         var $backToTop = $('.back-to-top'),
             $showBackTotop = $(window).height();
-			
+
         $backToTop.hide();
 
 
@@ -311,29 +315,29 @@ $(document).ready(function() {
                 $backToTop.fadeOut('slow');
             }
         });
-        
+
 		$backToTop.on('click', function (e) {
             e.preventDefault();
             $(' body, html ').animate( {scrollTop : 0}, 'slow' );
         });
     }
-	
+
 	scrollToTop(); //Init
 
 
     /*-----------------------------------------------------------------
       Style background image
-    -------------------------------------------------------------------*/	
-  
+    -------------------------------------------------------------------*/
+
     $('.js-image').each(function(){
         var dataImage = $(this).attr('data-image');
         $(this).css('background-image', 'url(' + dataImage + ')');
     });
-    
-	
+
+
     /*-----------------------------------------------------------------
       Autoresize textarea
-    -------------------------------------------------------------------*/	
+    -------------------------------------------------------------------*/
 
     $('textarea').each(function(){
         autosize(this);
@@ -343,7 +347,7 @@ $(document).ready(function() {
     /*-----------------------------------------------------------------
       Tooltip
     -------------------------------------------------------------------*/
-	
+
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
@@ -351,8 +355,8 @@ $(document).ready(function() {
 
     /*-----------------------------------------------------------------
       Switch categories & Filter mobile
-    -------------------------------------------------------------------*/	
-  
+    -------------------------------------------------------------------*/
+
     $('.select').on('click','.placeholder',function(){
       var parent = $(this).closest('.select');
       if ( ! parent.hasClass('is-open')){
@@ -365,22 +369,22 @@ $(document).ready(function() {
         var parent = $(this).closest('.select');
         parent.removeClass('is-open').find('.placeholder').text( $(this).text() );
         parent.find('input[type=hidden]').attr('value', $(this).attr('data-value') );
-	
+
 	    $('.filter__item').removeClass('active');
 	    $(this).addClass('active');
 	    var selector = $(this).attr('data-filter');
-		
+
 	    $('.js-filter-container').isotope({
 	        filter: selector
 	    });
-	    return false;	
+	    return false;
     });
 
 
     /*-----------------------------------------------------------------
       Masonry
-    -------------------------------------------------------------------*/	
-	
+    -------------------------------------------------------------------*/
+
     // Portfolio
     var $portfolioMasonry = $('.js-masonry').isotope({
         itemSelector: '.gallery-grid__item',
@@ -397,14 +401,14 @@ $(document).ready(function() {
         },
         fitRows: {
             gutter: '.gutter-sizer'
-        },	
+        },
         masonry: {
 	        columnWidth: '.gallery-grid__item',
             gutter: '.gutter-sizer',
             isAnimated: true
         }
     });
-  
+
     $portfolioMasonry.imagesLoaded().progress( function() {
         $portfolioMasonry.isotope ({
 	        columnWidth: '.gallery-grid__item',
@@ -415,12 +419,12 @@ $(document).ready(function() {
                 gutter: '.gutter-sizer'
             }
 	    });
-    });	
+    });
 
-	
+
     /*-----------------------------------------------------------------
       niceScroll
-    -------------------------------------------------------------------*/		
+    -------------------------------------------------------------------*/
 
     $('textarea').niceScroll({
 		horizrailenabled:false
@@ -430,7 +434,7 @@ $(document).ready(function() {
     /*-----------------------------------------------------------------
       emoji add in textarea
     -------------------------------------------------------------------*/
-	
+
     $(function() {
         $('.emoji-wrap img').on('click', function(){
             var emoji = $(this).attr('title');
@@ -442,26 +446,26 @@ $(document).ready(function() {
     /*-----------------------------------------------------------------
 	  mediumZoom
     -------------------------------------------------------------------*/
-  
+
     mediumZoom('[data-zoom]', {
         margin: 30
     });
 
-	
+
     /*-----------------------------------------------------------------
       Lazyload
     -------------------------------------------------------------------*/
 
     lazySizes.init();
 
-	
+
     /*-----------------------------------------------------------------
       Polyfill object-fit
-    -------------------------------------------------------------------*/	
-	
+    -------------------------------------------------------------------*/
+
     var $someImages = $('img.cover');
     objectFitImages($someImages);
-	
+
 
     /*-----------------------------------------------------------------
       Contacts form
@@ -481,9 +485,9 @@ $(document).ready(function() {
         var name = $("#nameContact").val(),
             email = $("#emailContact").val(),
             message = $("#messageContact").val();
-			
+
         var url = "assets/php/form-contact.php";
-		
+
         $.ajax({
             type: "POST",
             url: url,
@@ -503,13 +507,13 @@ $(document).ready(function() {
         $("#contact-form")[0].reset();
         submitMSG(true, "Thanks! Your message has been sent.");
     }
-  
+
     function formError(){
         $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
             $(this).removeClass();
         });
-    }  
-  
+    }
+
     function submitMSG(valid, msg){
 		var msgClasses;
         if(valid){
