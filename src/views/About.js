@@ -1,5 +1,5 @@
 import React from "react";
-import Cases from "../components/Cases"
+import Cases from "../components/Cases";
 
 function About() {
   return (
