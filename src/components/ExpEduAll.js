@@ -1,7 +1,7 @@
-import React from 'react';
-import Education from './Education';
-import Experience from './Experience';
-import Achievement from './Achievement';
+import React from "react";
+import Education from "./Education";
+import Experience from "./Experience";
+import Achievement from "./Achievement";
 
 function ExpEduAll(data) {
     return (

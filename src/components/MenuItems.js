@@ -1,5 +1,5 @@
-import React from 'react';
-import MenuItem from './MenuItem';
+import React from "react";
+import MenuItem from "./MenuItem";
 
 function MenuItems() {
     return (

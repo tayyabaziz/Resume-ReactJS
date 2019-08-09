@@ -1,15 +1,15 @@
-import React from 'react';
-import image_file from '../file/profile-image.jpg';
-import resume_file from '../file/Tayyab Aziz Resume.pdf';
-import SocialLink from './SocialLink';
-import ContactBlock from './ContactBlock';
+import React from "react";
+import imageFile from "../file/profile-image.jpg";
+import resumeFile from "../file/Tayyab Aziz Resume.pdf";
+import SocialLink from "./SocialLink";
+import ContactBlock from "./ContactBlock";
 
 function ContactBox () {
   return (
     <div className="sidebar box pb-0 sticky-column">
       <svg className="avatar avatar--180" viewBox="0 0 188 188">
         <g className="avatar__box">
-          <image href={image_file} height="100%" width="100%" />
+          <image href={imageFile} height="100%" width="100%" />
         </g>
       </svg>
       <div className="text-center">
@@ -35,7 +35,7 @@ function ContactBox () {
           <ContactBlock contact_title="Interest" contact_icon="font-icon icon-smile" contact_text="Game Development, Game Designing, and Web Development (PHP and Wordpress)" />
         </ul>
 
-        <a className="btn btn--blue-gradient" target="_blank" rel="noopener noreferrer" href={resume_file}><i className="font-icon icon-download"></i> Download CV</a>
+        <a className="btn btn--blue-gradient" target="_blank" rel="noopener noreferrer" href={resumeFile}><i className="font-icon icon-download"></i> Download CV</a>
       </div>
     </div>
   );

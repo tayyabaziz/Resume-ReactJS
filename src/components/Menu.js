@@ -1,6 +1,6 @@
-import React from 'react';
-import CircleMenu from './CircleMenu';
-import MenuItems from './MenuItems';
+import React from "react";
+import CircleMenu from "./CircleMenu";
+import MenuItems from "./MenuItems";
 
 function Menu() {
     return (

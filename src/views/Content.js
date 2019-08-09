@@ -1,11 +1,11 @@
-import React from 'react';
-import ContactBox from '../components/ContactBox';
+import React from "react";
+import ContactBox from "../components/ContactBox";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Footer from '../components/Footer';
-import Menu from '../components/Menu';
-import About from './About';
-import Resume from './Resume';
-import Portfolio from './Portfolio';
+import Footer from "../components/Footer";
+import Menu from "../components/Menu";
+import About from "./About";
+import Resume from "./Resume";
+import Portfolio from "./Portfolio";
 
 function Content () {
   return (

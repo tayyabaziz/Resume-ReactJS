@@ -1,6 +1,6 @@
-import React from 'react';
-import ExpEduAll from '../components/ExpEduAll';
-import Skills from '../components/Skills';
+import React from "react";
+import ExpEduAll from "../components/ExpEduAll";
+import Skills from "../components/Skills";
 
 function Resume() {
   return (

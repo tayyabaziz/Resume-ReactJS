@@ -1,5 +1,5 @@
-import React from 'react';
-import Progress from './Progress';
+import React from "react";
+import Progress from "./Progress";
 
 function Skills(data) {
     return (
