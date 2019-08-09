@@ -6,7 +6,7 @@ import Content from './views/Content';
 import cookie from 'react-cookies';
 
 function App() {
-  cookie.save('dark', false);
+  cookie.save('dark', true);
   return (
     <React.Fragment>
       <Preloader />

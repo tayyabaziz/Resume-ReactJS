@@ -857,7 +857,7 @@ iframe {
   width: 20px;
 }
 @media only screen and (max-width: 580px) {
-  .hamburger .line {
+  .hamburger.is-active .line {
     margin: 3px 0;
   }
 }
@@ -1095,7 +1095,7 @@ iframe {
 }
 @media only screen and (max-width: 580px) {
   .gutter-top {
-    padding-top: 12rem;
+    padding-top: 11.5rem;
   }
 }
 
@@ -1154,7 +1154,7 @@ iframe {
 .social__link {
   color: #44566C;
   display: inline-block;
-  font-size: .875rem;
+  font-size: 1.375rem;
   margin-left: .8rem;
   text-decoration: none;
 }

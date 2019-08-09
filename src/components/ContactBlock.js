@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ContactBlocks (data) {
+function ContactBlock (data) {
   if (data.contact_link) {
     return (
       <li className="contacts-block__item" data-toggle="tooltip" data-placement="top" title={data.contact_title}>
@@ -17,4 +17,4 @@ function ContactBlocks (data) {
   }
 }
 
-export default ContactBlocks;
+export default ContactBlock;
