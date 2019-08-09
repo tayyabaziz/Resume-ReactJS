@@ -60,11 +60,11 @@ This section has moved here: [Making a Progressive Web App](https://facebook.git
 
 ### Advanced Configuration
 
-This section has moved here: [Advanced Configuration]https://facebook.github.io/create-react-app/docs/advanced-configuration
+This section has moved here: [Advanced Configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
-This section has moved here: [Deployment]https://facebook.github.io/create-react-app/docs/deployment
+This section has moved here: [Deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify
 
