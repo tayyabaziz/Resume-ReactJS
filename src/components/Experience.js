@@ -4,8 +4,8 @@ import icon_experience from '../assets/icons/icon-experience.svg';
 
 function Experience() {
     return (
-        <div className="col-12">
-            <h2 className="title title--h3"><img className="title-icon" src={icon_experience} alt="" /> Experience</h2>
+        <div className="col-12 mt-2">
+            <h2 className="title title--h3"><img className="title-icon" src={icon_experience} alt="" /> EXPERIENCE <hr/></h2>
             <div className="timeline">
                 <ExpEduItem title="PHP Developer @ Tech Works (Pvt.) Ltd, (Eat Mubarak), Karachi (Pakistan)" period="Aug 16 2018 - present" description={<ul><li>Developed and maintaining Rider Portal with Live Tracking of riders using CodeIgniter PHP Framework and REST Service.</li></ul>} />
                 <ExpEduItem title="Web Developer @ Harley Willington, Karachi (Pakistan)" period="Apr 09 2018 - Aug 15 2018" description={<ul><li>Successfully designed and developed Harley Willington’s Company web profile</li><li>Developed Online Booking Portal for Airmen Golf Club &amp; Recreational Park and linked it with wordpress and also maintaining wordpress website.</li></ul>} />
