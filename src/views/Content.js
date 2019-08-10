@@ -1,11 +1,9 @@
 import React from "react";
+import { BrowserRouter as Router} from "react-router-dom";
 import ContactBox from "../components/ContactBox";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "../components/Footer";
 import Menu from "../components/Menu";
-import About from "./About";
-import Resume from "./Resume";
-import Portfolio from "./Portfolio";
+import RouteContainer from "../components/RouteContainer";
 
 function Content () {
   return (
@@ -20,11 +18,7 @@ function Content () {
           <div className="box pb-0">
             <Router>
               <Menu />
-              <Switch>
-                <Route exact path="/" component={About} />
-                <Route path="/resume" component={Resume} />
-                <Route path="/portfolio" component={Portfolio} />
-              </Switch>
+              <RouteContainer />
             </Router>
           </div>
           <Footer />

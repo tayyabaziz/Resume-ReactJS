@@ -6,7 +6,7 @@ function Resume() {
   return (
     <React.Fragment>
       {/*Resume*/}
-      <div className="pb-3">
+      <div className="pb-2" id="hash">
         <h1 className="title title--h1 title__separate">Resume</h1>
       </div>
       <ExpEduAll />
