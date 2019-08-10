@@ -136,6 +136,7 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -ms-overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 body, html {
@@ -1695,6 +1696,11 @@ iframe {
   }
   .filter__item.active a {
     color: #0045FF;
+    border-bottom: 2px solid #0045FF;
+    transition: all 200ms ease 200ms;
+    -webkit-transition:all 200ms ease 200ms;
+    -moz-transition:all 200ms ease 200ms;
+    -o-transition:all 200ms ease 200ms;
   }
   .filter__link {
     color: #8697A8;

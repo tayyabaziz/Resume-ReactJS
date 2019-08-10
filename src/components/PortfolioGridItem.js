@@ -4,7 +4,7 @@ function PortfolioGridItem(data) {
     return (
         <React.Fragment>
             {/*Portfolio Item*/}
-            <figure className={"gallery-grid__item "+data.portfolio_category_class}>
+            <figure className={"gallery-grid__item " + data.portfolio_category_class}>
                 <div className="gallery-grid__image-wrap">
                     <img className="gallery-grid__image cover lazyload" src={data.portfolio_image} data-zoom alt={data.portfolio_title} />
                 </div>
