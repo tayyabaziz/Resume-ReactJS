@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
-import image01 from "../file/portfolio/image-01.jpg";
-import image02 from "../file/portfolio/image-02.jpg";
-import image03 from "../file/portfolio/image-03.jpg";
-import image04 from "../file/portfolio/image-04.jpg";
+import image011 from "../file/portfolio/image-011.jpg";
+import image021 from "../file/portfolio/image-021.jpg";
+import image031 from "../file/portfolio/image-031.jpg";
+import image041 from "../file/portfolio/image-041.jpg";
+import image051 from "../file/portfolio/image-051.jpg";
+import image061 from "../file/portfolio/image-061.jpg";
+import image071 from "../file/portfolio/image-071.jpg";
 import PortfolioGridItem from "./PortfolioGridItem";
 import PortfolioGridFilter from "./PortfolioGridFilter";
 
@@ -14,7 +17,7 @@ function PortfolioGrid(data) {
         const grid2 = document.querySelector(".js-masonry");
         var $portfolioMasonry = new Isotope(grid2, {
             itemSelector: '.gallery-grid__item',
-            layoutMode: 'fitRows',
+            layoutMode: 'masonry',
             percentPosition: true,
             transitionDuration: '0.5s',
             hiddenStyle: {
@@ -34,78 +37,38 @@ function PortfolioGrid(data) {
                 isAnimated: true
             }
         });
-        var imageLoad = new imagesLoaded($portfolioMasonry, function () {
+        new imagesLoaded($portfolioMasonry, function () {
             console.log("ASDSADSAD");
             $portfolioMasonry.arrange({
                 columnWidth: '.gallery-grid__item',
                 gutter: '.gutter-sizer',
-                isAnimated: true,
-                layoutMode: 'fitRows',
-                fitRows: {
-                    gutter: '.gutter-sizer'
-                }
+                layoutMode: 'masonry',
             });
-            $portfolioMasonry.layout();
-        });
-
-        imageLoad.progress(function (instance) {
-            // layout Isotope after each image loads
-            console.log(instance);
-            console.log("ASDS5453345ADSAD");
-            $portfolioMasonry.layout();
         });
         setGrid($portfolioMasonry);
     }, [])
+
+    function onLoadEvent(grid) {
+        setTimeout(() => {
+            if (Object.entries(grid).length !== 0) {
+                console.log("test");
+                grid.arrange(grid.options);
+            }
+        }, 100);
+    }
     return (
         <React.Fragment>
-            <PortfolioGridFilter grid={grid} />
+            <PortfolioGridFilter onLoad={onLoadEvent(grid)}  grid={grid} />
             {/*Content*/}
             <div className="gallery-grid js-masonry js-filter-container">
                 <div className="gutter-sizer"></div>
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-concept" portfolio_image={image01} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image02} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-life" portfolio_image={image03} portfolio_title="Half Avocado" portfolio_category="Concept" />
-                <PortfolioGridItem portfolio_category_class="category-design" portfolio_image={image04} portfolio_title="Half Avocado" portfolio_category="Concept" />
+                <PortfolioGridItem portfolio_category_class="category-php" portfolio_image={image011} portfolio_title="Daaman Designs" portfolio_category="PHP" portfolio_link="/daaman-designs" />
+                <PortfolioGridItem portfolio_category_class="category-android" portfolio_image={image021} portfolio_title="Happening.PK Organizer App" portfolio_category="Android" portfolio_link="/happeningpk-organizer" />
+                <PortfolioGridItem portfolio_category_class="category-android" portfolio_image={image031} portfolio_title="Happening.PK App" portfolio_category="Android" portfolio_link="/happeningpk-app" />
+                <PortfolioGridItem portfolio_category_class="category-php" portfolio_image={image041} portfolio_title="Happening.PK" portfolio_category="PHP" portfolio_link="/happeningpk" />
+                <PortfolioGridItem portfolio_category_class="category-php" portfolio_image={image051} portfolio_title="Forrun.co" portfolio_category="PHP" portfolio_link="/forrunco" />
+                <PortfolioGridItem portfolio_category_class="category-wordpress" portfolio_image={image061} portfolio_title="NKH Group" portfolio_category="Wordpress" portfolio_link="/nkh-group" />
+                <PortfolioGridItem portfolio_category_class="category-wordpress" portfolio_image={image071} portfolio_title="Amber Batool" portfolio_category="Wordpress" portfolio_link="/amber-batool" />
             </div>
         </React.Fragment>
     );

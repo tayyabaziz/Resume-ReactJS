@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import mediumZoom from "medium-zoom";
 import PortfolioGrid from "../components/PortfolioGrid";
 
-function Portfolio() {
+function PortfolioCategory(data) {
+  console.log(data)
   useEffect(() => {
     mediumZoom('[data-zoom]', {
       margin: 30
@@ -15,10 +16,10 @@ function Portfolio() {
         <h1 className="title title--h1 title__separate">Portfolio</h1>
       </div>
       <div className="pb-0">
-        <PortfolioGrid />
+        <PortfolioGrid filter={data.match.params.category}/>
       </div>
     </React.Fragment>
   );
 }
 
-export default Portfolio;
+export default PortfolioCategory;

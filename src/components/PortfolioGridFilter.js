@@ -38,9 +38,9 @@ function PortfolioGridFilter(data) {
                 <ul className="filter">
                     <li className="filter__item">Category</li>
                     <li className="filter__item active" data-filter="*" onClick={onFilterChange}><a className="filter__link active" href="#/">All</a></li>
-                    <li className="filter__item" data-filter=".category-concept" onClick={onFilterChange}><a className="filter__link" href="#/">Concept</a></li>
-                    <li className="filter__item" data-filter=".category-design" onClick={onFilterChange}><a className="filter__link" href="#/">Design</a></li>
-                    <li className="filter__item" data-filter=".category-life" onClick={onFilterChange}><a className="filter__link" href="#/">Life</a></li>
+                    <li className="filter__item" data-filter=".category-php" onClick={onFilterChange}><a className="filter__link" href="#/">PHP</a></li>
+                    <li className="filter__item" data-filter=".category-android" onClick={onFilterChange}><a className="filter__link" href="#/">Android</a></li>
+                    <li className="filter__item" data-filter=".category-wordpress" onClick={onFilterChange}><a className="filter__link" href="#/">Wordpress</a></li>
                 </ul>
                 <input type="hidden" name="changemetoo" />
             </div>

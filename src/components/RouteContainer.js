@@ -4,6 +4,8 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import About from "../views/About";
 import Resume from "../views/Resume";
 import Portfolio from "../views/Portfolio";
+import PortfolioItemDetail from "../views/PortfolioItemDetail";
+import NoMatch from "../views/NoMatch";
 
 function RouteContainer ({location}) {
   return (
@@ -15,9 +17,11 @@ function RouteContainer ({location}) {
       >
         <div>
           <Switch location={location}>
-            <Route exact path="/" component={About} />
-            <Route path="/resume" component={Resume} />
-            <Route path="/portfolio" component={Portfolio} />
+            <Route exact path={"/" } component={About} />
+            <Route exact path={"/resume"} component={Resume} />
+            <Route exact path={"/portfolio"} component={Portfolio} />
+            <Route exact path={"/:projectName"} component={PortfolioItemDetail} />
+            <Route component={NoMatch} />
           </Switch>
         </div>
       </CSSTransition>
