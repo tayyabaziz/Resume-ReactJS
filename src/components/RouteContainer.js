@@ -15,15 +15,13 @@ function RouteContainer ({location}) {
         timeout={{ enter: 300, exit: 10 }}
         classNames='fade'
       >
-        <div>
-          <Switch location={location}>
-            <Route exact path={"/" } component={About} />
-            <Route exact path={"/resume"} component={Resume} />
-            <Route exact path={"/portfolio"} component={Portfolio} />
-            <Route exact path={"/:projectName"} component={PortfolioItemDetail} />
-            <Route component={NoMatch} />
-          </Switch>
-        </div>
+        <Switch location={location}>
+          <Route exact path={"/"} component={About} />
+          <Route path={"/resume"} component={Resume} />
+          <Route path={"/portfolio/:projectName"} component={PortfolioItemDetail} />
+          <Route path={"/portfolio"} component={Portfolio} />
+          <Route component={NoMatch} />
+        </Switch>
       </CSSTransition>
     </TransitionGroup>
   );

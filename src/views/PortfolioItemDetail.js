@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import mediumZoom from "medium-zoom";
+import iconBack from "../assets/icons/icon-back.svg";
 import image011 from "../file/portfolio/image-011.jpg";
 import image012 from "../file/portfolio/image-012.jpg";
 import image021 from "../file/portfolio/image-021.jpg";
@@ -100,14 +101,17 @@ function PortfolioItemDetail(data) {
   let projectData = projects[data.match.params.projectName];
   let images = [];
   projectData.images.forEach(element => {
-    images.push(<div className="col col-sm-6 col-md-4"><img className="img-fluid" data-zoom src={element} alt={projectData.projectName} /></div>);
+    images.push(<div className="col-12 col-sm-6 col-md-4 py-2"><img className="rounded-lg img-fluid shadow" data-zoom src={element} alt={projectData.projectName} /></div>);
   });
 
   return (
     <React.Fragment>
       {/*PortfolioItemDetail*/}
-      <div className="pb-2" id="hash">
-        <h1 className="title title--h1 title__separate">{projectData.title}
+      <div onClick={() =>data.history.goBack()} className="circle-back">
+        <img src={iconBack} alt="" />
+      </div>
+      <div className="pb-2 text-center" id="hash">
+        <h1 className="title title--h1 ">{projectData.title}
           <span className="title title--h5"> ({projectData.category}) </span>
         </h1>
       </div>

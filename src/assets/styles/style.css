@@ -2512,4 +2512,40 @@ iframe {
     transition: opacity 300ms ease-in;
 }
 
+.circle-back {
+  background-image: linear-gradient(to right, #0081ff 0%, #0045ff 100%);
+  border-radius: .937rem 50% 50% 50%;
+  box-shadow: 0 24px 40px rgba(0, 69, 255, 0.2), 0 8px 16px rgba(0, 69, 255, 0.15);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -moz-box;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 3.75rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3.75rem;
+  z-index: 2;
+  cursor: pointer;
+}
+.circle-back img {
+  width: 1.5rem;
+}
+@media only screen and (max-width: 992px) {
+  .circle-back {
+    height: 3.55rem;
+    width: 3.55rem;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .circle-back {
+    position: fixed;
+    z-index: 1101;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
