@@ -2513,9 +2513,11 @@ iframe {
 }
 
 .circle-back {
-  background-image: linear-gradient(to right, #0081ff 0%, #0045ff 100%);
+  /* background-image: linear-gradient(to right, #0081ff 0%, #0045ff 100%); */
+  background-image: linear-gradient(to left, #0045ff 0%, #0081ff 100%);
   border-radius: .937rem 50% 50% 50%;
-  box-shadow: 0 24px 40px rgba(0, 69, 255, 0.2), 0 8px 16px rgba(0, 69, 255, 0.15);
+  /* box-shadow: 0 24px 40px rgba(0, 69, 255, 0.2), 0 8px 16px rgba(0, 69, 255, 0.15); */
+  box-shadow: 0 8px 16px rgba(0, 69, 255, 0.15), 0 24px 40px rgba(0, 69, 255, 0.2);
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -moz-box;
