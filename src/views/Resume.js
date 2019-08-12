@@ -8,6 +8,7 @@ function Resume() {
     <React.Fragment>
       <Helmet>
         <title>RESUME - Tayyab Aziz</title>
+        <link rel="canonical" href={window.location.href} />
         <meta property="og:title" content="RESUME - Tayyab Aziz" />
         <meta property="twitter:title" content="RESUME - Tayyab Aziz" />
       </Helmet>

@@ -13,6 +13,7 @@ function Portfolio() {
     <React.Fragment>
       <Helmet>
         <title>PORTFOLIO - Tayyab Aziz</title>
+        <link rel="canonical" href={window.location.href} />
         <meta property="og:title" content="PORTFOLIO - Tayyab Aziz" />
         <meta property="twitter:title" content="PORTFOLIO - Tayyab Aziz" />
       </Helmet>

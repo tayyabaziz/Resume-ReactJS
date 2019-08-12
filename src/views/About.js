@@ -1,9 +1,16 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import Cases from "../components/Cases";
 
 function About() {
   return (
     <React.Fragment>
+      <Helmet>
+        <title>Tayyab Aziz - A Full Stack Web Developer and Gamer</title>
+        <link rel="canonical" href={window.location.href} />
+        <meta property="og:title" content="Tayyab Aziz - A Full Stack Web Developer and Gamer" />
+        <meta property="twitter:title" content="Tayyab Aziz - A Full Stack Web Developer and Gamer" />
+      </Helmet>
       {/*About*/}
       <div className="pb-2" id="hash">
         <h1 className="title title--h1 title__separate">About Me</h1>

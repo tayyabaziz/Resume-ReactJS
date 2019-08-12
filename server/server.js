@@ -39,7 +39,6 @@ const projects = {
 };
 
 const serverRenderer = (req, res, next) => {
-    console.log(req.path)
     fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
         if (err) {
             console.error(err)
@@ -47,6 +46,10 @@ const serverRenderer = (req, res, next) => {
         }
         const pathname = req.path.replace(/\//g, "");
         const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        data = data.replace(
+            new RegExp("@public_url", 'gi'), req.protocol + '://' + req.get('host')
+        )
+
         data = data.replace(
             new RegExp("@page_url", 'gi'), fullUrl
         )

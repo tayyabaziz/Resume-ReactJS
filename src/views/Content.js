@@ -9,14 +9,12 @@ import RouteContainer from "../components/RouteContainer";
 function Content() {
   return (
     <React.Fragment>
-      <Helmet>
-        <title>Tayyab Aziz - A Full Stack Web Developer and Gamer</title>
-        <link rel="canonical" href={window.location.href} />
-        <meta name="description" content="Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years. Also a Gamer who wants to learn games development for fun." />
-        <meta name="og:description" content="Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years. Also a Gamer who wants to learn games development for fun." />
-        <meta name="twitter:description" content="Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years. Also a Gamer who wants to learn games development for fun." />
-      </Helmet>
       <Router>
+        <Helmet>
+          <meta name="description" content="Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years. Also a Gamer who wants to learn games development for fun." />
+          <meta name="og:description" content="Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years. Also a Gamer who wants to learn games development for fun." />
+          <meta name="twitter:description" content="Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years. Also a Gamer who wants to learn games development for fun." />
+        </Helmet>
       <div className="container gutter-top">
         <div className="row sticky-parent">
           {/*Sidebar*/}
