@@ -28,6 +28,7 @@ function PortfolioGridFilter(data) {
         data.grid.arrange({
             filter: selector
         });
+        return true;
     }
 
     return (
