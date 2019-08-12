@@ -48,7 +48,7 @@ const serverRenderer = (req, res, next) => {
         const pathname = req.path.replace(/\//g, "");
         const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
         data = data.replace(
-            "@page_url", fullUrl
+            new RegExp("@page_url", 'gi'), fullUrl
         )
         switch (pathname) {
             case "":
@@ -110,7 +110,7 @@ app.all('*', (req, res, next) => {
             return res.status(500).send('An error occurred')
         }
         data = data.replace(
-            '@page_title', "404 - Tayyab Aziz"
+            new RegExp("@page_title", 'gi'), "404 - Tayyab Aziz"
         )
         return res.status(404).send(
             data.replace(
