@@ -5,11 +5,6 @@ import Cases from "../components/Cases";
 function About() {
   return (
     <React.Fragment>
-      <Helmet>
-        <title>Portfolio - Tayyab Aziz</title>
-        <meta property="og:title" content="Portfolio - Tayyab Aziz" />
-        <meta property="twitter:title" content="Portfolio - Tayyab Aziz" />
-      </Helmet>
       {/*About*/}
       <div className="pb-2" id="hash">
         <h1 className="title title--h1 title__separate">About Me</h1>

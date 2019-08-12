@@ -7,13 +7,13 @@ function Resume() {
   return (
     <React.Fragment>
       <Helmet>
-        <title>RESUME - Tayyab Aziz</title>
-        <meta property="og:title" content="RESUME - Tayyab Aziz" />
-        <meta property="twitter:title" content="RESUME - Tayyab Aziz" />
+        <title>Resume - Tayyab Aziz</title>
+        <meta property="og:title" content="Resume - Tayyab Aziz" />
+        <meta property="twitter:title" content="Resume - Tayyab Aziz" />
       </Helmet>
-      {/*RESUME*/}
+      {/*Resume*/}
       <div className="pb-2" id="hash">
-        <h1 className="title title--h1 title__separate">RESUME</h1>
+        <h1 className="title title--h1 title__separate">Resume</h1>
       </div>
       <ExpEduAll />
       <Skills/>
