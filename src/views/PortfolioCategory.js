@@ -3,7 +3,6 @@ import mediumZoom from "medium-zoom";
 import PortfolioGrid from "../components/PortfolioGrid";
 
 function PortfolioCategory(data) {
-  console.log(data)
   useEffect(() => {
     mediumZoom('[data-zoom]', {
       margin: 30

@@ -17,9 +17,9 @@ function RouteContainer ({location}) {
       >
         <Switch location={location}>
           <Route exact path={"/"} component={About} />
-          <Route path={"/resume"} component={Resume} />
-          <Route path={"/portfolio/:projectName"} component={PortfolioItemDetail} />
-          <Route path={"/portfolio"} component={Portfolio} />
+          <Route exact path={"/resume/"} component={Resume} />
+          <Route exact path={"/portfolio/"} component={Portfolio} />
+          <Route exact path={"/portfolio/:projectName"} component={PortfolioItemDetail} />
           <Route component={NoMatch} />
         </Switch>
       </CSSTransition>

@@ -6,8 +6,8 @@ function MenuItems() {
         <div className="inner-menu js-menu">
             <ul className="nav">
                 <MenuItem to="/" title="About" />
-                <MenuItem to="/resume" title="Resume" />
-                <MenuItem to="/portfolio" title="Portfolio" />
+                <MenuItem to="/resume/" title="Resume" />
+                <MenuItem to="/portfolio/" title="Portfolio" />
             </ul>
         </div>
     );
