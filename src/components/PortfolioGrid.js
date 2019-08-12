@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
-import image011 from "../file/portfolio/image-011.jpg";
-import image021 from "../file/portfolio/image-021.jpg";
-import image031 from "../file/portfolio/image-031.jpg";
-import image041 from "../file/portfolio/image-041.jpg";
-import image051 from "../file/portfolio/image-051.jpg";
-import image061 from "../file/portfolio/image-061.jpg";
-import image071 from "../file/portfolio/image-071.jpg";
 import PortfolioGridItem from "./PortfolioGridItem";
 import PortfolioGridFilter from "./PortfolioGridFilter";
+const image011 = "/images/portfolio/image-011.jpg";
+const image021 = "/images/portfolio/image-021.jpg";
+const image031 = "/images/portfolio/image-031.jpg";
+const image041 = "/images/portfolio/image-041.jpg";
+const image051 = "/images/portfolio/image-051.jpg";
+const image061 = "/images/portfolio/image-061.jpg";
+const image071 = "/images/portfolio/image-071.jpg";
 
 function PortfolioGrid(data) {
     const [grid, setGrid] = useState({});

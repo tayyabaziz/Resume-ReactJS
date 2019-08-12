@@ -1,8 +1,8 @@
 import React from "react";
-import imageFile from "../file/profile-image.jpg";
-import resumeFile from "../file/Tayyab Aziz Resume.pdf";
 import SocialLink from "./SocialLink";
 import ContactBlock from "./ContactBlock";
+const imageFile = "/images/profile-image.jpg";
+const resumeFile = "/file/Tayyab Aziz Resume.pdf";
 
 function ContactBox () {
   return (
