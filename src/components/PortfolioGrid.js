@@ -49,7 +49,7 @@ function PortfolioGrid(data) {
     }, [])
 
     function onLoadEvent(grid) {
-        setTimeout(() => {
+        return setTimeout(() => {
             if (Object.entries(grid).length !== 0) {
                 console.log("test");
                 grid.arrange(grid.options);
