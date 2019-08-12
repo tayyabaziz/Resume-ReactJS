@@ -12,9 +12,9 @@ function Portfolio() {
   return (
     <React.Fragment>
       <Helmet>
-        <title>Portfolio - Tayyab Aziz</title>
-        <meta property="og:title" content="Portfolio - Tayyab Aziz" />
-        <meta property="twitter:title" content="Portfolio - Tayyab Aziz" />
+        <title>PORTFOLIO - Tayyab Aziz</title>
+        <meta property="og:title" content="PORTFOLIO - Tayyab Aziz" />
+        <meta property="twitter:title" content="PORTFOLIO - Tayyab Aziz" />
       </Helmet>
       {/*Portfolio*/}
       <div className="pb-2" id="hash">

@@ -20,7 +20,7 @@ function RouteContainer ({location}) {
           <Route exact path={"/resume/"} component={Resume} />
           <Route exact path={"/portfolio/"} component={Portfolio} />
           <Route exact path={"/portfolio/:projectName"} component={PortfolioItemDetail} />
-          <Route component={NoMatch} />
+          <Route path="*" component={NoMatch} status={404}/>
         </Switch>
       </CSSTransition>
     </TransitionGroup>

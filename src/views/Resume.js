@@ -7,9 +7,9 @@ function Resume() {
   return (
     <React.Fragment>
       <Helmet>
-        <title>Resume - Tayyab Aziz</title>
-        <meta property="og:title" content="Resume - Tayyab Aziz" />
-        <meta property="twitter:title" content="Resume - Tayyab Aziz" />
+        <title>RESUME - Tayyab Aziz</title>
+        <meta property="og:title" content="RESUME - Tayyab Aziz" />
+        <meta property="twitter:title" content="RESUME - Tayyab Aziz" />
       </Helmet>
       {/*Resume*/}
       <div className="pb-2" id="hash">

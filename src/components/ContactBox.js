@@ -1,15 +1,19 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 import SocialLink from "./SocialLink";
 import ContactBlock from "./ContactBlock";
 const imageFile = "/images/profile-image.jpg";
-const resumeFile = "/file/Tayyab Aziz Resume.pdf";
+const resumeFile = "/files/Tayyab Aziz Resume.pdf";
 
 function ContactBox () {
   return (
     <div className="sidebar box pb-0 sticky-column">
       <svg className="avatar avatar--180" viewBox="0 0 188 188">
         <g className="avatar__box">
-          <image href={imageFile} height="100%" width="100%" />
+          <NavLink to="/">
+            <image href={imageFile} height="100%" width="100%" />
+          </NavLink>
+
         </g>
       </svg>
       <div className="text-center">
