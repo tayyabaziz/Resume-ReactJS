@@ -136,7 +136,7 @@ function PortfolioItemDetail(data) {
         <div className="row">
           {projectData.projectUnder && <label className="col-12"><strong>Project Under: </strong>{projectData.projectUnder}</label>}
           {projectData.client && <label className="col-12"><strong>Client: </strong>{projectData.client}</label>}
-          {projectData.url && <label className="col-12"><strong>Url: </strong><a href={projectData.url}>{projectData.url}</a></label>}
+          {projectData.url && <label className="col-12"><strong>Url: </strong><a target="_blank" rel="noopener noreferrer" href={projectData.url}>{projectData.url}</a></label>}
           {projectData.roles && <label className="col-12"><strong>Roles: </strong>{projectData.roles}</label>}
           {projectData.description && <div className="col-12">
             {projectData.description}
