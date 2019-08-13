@@ -59,14 +59,23 @@ const serverRenderer = (req, res, next) => {
                 break;
             default:
                 if (req.params.projectName) {
-                    const url = req.protocol + '://' + req.get('host') + "/api/project/" + req.params.projectName;
-                    const responseData = await axios(url);
-                    data = data.replace(
-                        new RegExp("@page_title", 'gi'), responseData.data.title + " - Tayyab Aziz"
-                    )
-                    data = data.replace(
-                        new RegExp("@page_description", 'gi'), responseData.data.metaDesc
-                    )
+                    try {
+                        const url = req.protocol + '://' + req.get('host') + "/api/project/" + req.params.projectName;
+                        const responseData = await axios(url);
+                        data = data.replace(
+                            new RegExp("@page_title", 'gi'), responseData.data.title + " - Tayyab Aziz"
+                        )
+                        data = data.replace(
+                            new RegExp("@page_description", 'gi'), responseData.data.metaDesc
+                        )
+                    }
+                    catch(err) {
+                        console.log(err.message)
+                        data = data.replace(
+                            new RegExp("@page_title", 'gi'), "404 - Tayyab Aziz"
+                        )
+                        return res.status(404).send(data)
+                    }
                 }
                 break;
         }

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import mediumZoom from "medium-zoom";
 import axios from "axios";
 import iconBack from "../assets/icons/icon-back.svg";
+import NoMatch from "./NoMatch";
 
 function PortfolioItemDetail(data) {
   const [projectData, setProject] = useState({});
@@ -12,15 +13,20 @@ function PortfolioItemDetail(data) {
       margin: 30
     });
     async function fetchData() {
-      const url = window.location.origin + "/api/project/" + data.match.params.projectName;
-      const responseData = await axios(url);
-      setProject(responseData.data)
+      try {
+        const url = window.location.origin + "/api/project/" + data.match.params.projectName;
+        const responseData = await axios(url);
+        setProject(responseData.data)
+      } catch (error) {
+        console.log(error);
+        setProject(false);
+      }
     }
     fetchData();
   }, [data.match.params.projectName]);
-
-  return (
-    <React.Fragment>
+  let ReactHTML = <NoMatch/>
+  if (projectData) {
+    ReactHTML = <React.Fragment>
       <Helmet>
         <title>{projectData.title} - Tayyab Aziz</title>
         <link rel="canonical" href={window.location.href} />
@@ -46,16 +52,19 @@ function PortfolioItemDetail(data) {
           {projectData.url && <label className="col-12"><strong>Url: </strong><a target="_blank" rel="noopener noreferrer" href={projectData.url}>{projectData.url}</a></label>}
           {projectData.roles && <label className="col-12"><strong>Roles: </strong>{projectData.roles}</label>}
           {projectData.description && <div className="col-12">
-              {ReactHtmlParser(projectData.description)}
+            {ReactHtmlParser(projectData.description)}
           </div>}
         </div>
         <div className="row">
           {projectData.images && projectData.images.map(element => {
-            return (<div className = "col-12 col-sm-6 col-md-4 py-2" key = { element } > <img className="rounded-lg img-fluid shadow" data-zoom src={element} alt={projectData.projectName} /></div>);
-        })}
+            return (<div className="col-12 col-sm-6 col-md-4 py-2" key={element} > <img className="rounded-lg img-fluid shadow" data-zoom src={element} alt={projectData.projectName} /></div>);
+          })}
         </div>
       </div>
     </React.Fragment>
+  }
+  return (
+    ReactHTML
   );
 }
 
