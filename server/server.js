@@ -18,7 +18,7 @@ app.use(compression());
 const router = express.Router();
 
 const serverRenderer = (req, res, next) => {
-    fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
+    fs.readFile(path.resolve('./build/index.html'), 'utf8', async (err, data) => {
         if (err) {
             console.error(err)
             return res.status(500).send('An error occurred')
@@ -60,24 +60,18 @@ const serverRenderer = (req, res, next) => {
             default:
                 if (req.params.projectName) {
                     const url = req.protocol + '://' + req.get('host') + "/api/project/" + req.params.projectName;
-                    console.log(url);
-                    const responseData = fetchData(url);
+                    const responseData = await axios(url);
                     data = data.replace(
-                        new RegExp("@page_title", 'gi'), responseData.title + " - Tayyab Aziz"
+                        new RegExp("@page_title", 'gi'), responseData.data.title + " - Tayyab Aziz"
                     )
                     data = data.replace(
-                        new RegExp("@page_description", 'gi'), responseData.metaDesc
+                        new RegExp("@page_description", 'gi'), responseData.data.metaDesc
                     )
                 }
                 break;
         }
         return res.send(data);
     })
-}
-
-async function fetchData(url) {
-    const responseData = await axios(url);
-    return responseData.data;
 }
 
 router.use(
