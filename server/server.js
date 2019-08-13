@@ -1,11 +1,15 @@
 import path from 'path';
 import fs from 'fs';
 import express from "express";
+import cors from "cors";
+import compression from "compression";
 import axios from "axios";
 import("./db.config");
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+app.use(cors());
+app.use(compression());
 const router = express.Router();
 
 const serverRenderer = (req, res, next) => {
