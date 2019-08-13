@@ -1,7 +1,6 @@
 import path from 'path';
 import fs from 'fs';
 import express from "express";
-import ReactDOMServer from "react-dom/server";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -93,8 +92,7 @@ const serverRenderer = (req, res, next) => {
                 break;
         }
 
-        const html = ReactDOMServer.renderToString(data)
-        return res.send(data.replace(html))
+        return res.send(data)
     })
 }
 router.use(
@@ -106,6 +104,7 @@ app.use(router)
 app.get('/resume', serverRenderer)
 app.get('/portfolio', serverRenderer)
 app.get('/portfolio/:projectName', serverRenderer)
+
 app.all('*', (req, res, next) => {
     fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
         if (err) {
@@ -115,11 +114,7 @@ app.all('*', (req, res, next) => {
         data = data.replace(
             new RegExp("@page_title", 'gi'), "404 - Tayyab Aziz"
         )
-        return res.status(404).send(
-            data.replace(
-                ReactDOMServer.renderToString(data)
-            )
-        )
+        return res.status(404).send(data)
     })
 })
 
