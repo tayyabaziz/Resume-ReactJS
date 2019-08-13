@@ -16,37 +16,37 @@ function PortfolioGrid(data) {
     useEffect(() => {
         const grid2 = document.querySelector(".js-masonry");
         var $portfolioMasonry = new Isotope(grid2, {
-            itemSelector: '.gallery-grid__item',
-            layoutMode: 'masonry',
+            itemSelector: ".gallery-grid__item",
+            layoutMode: "masonry",
             percentPosition: true,
-            transitionDuration: '0.5s',
+            transitionDuration: "0.5s",
             hiddenStyle: {
                 opacity: 0,
-                transform: 'scale(0.001)'
+                transform: "scale(0.001)"
             },
             visibleStyle: {
                 opacity: 1,
-                transform: 'scale(1)'
+                transform: "scale(1)"
             },
             fitRows: {
-                gutter: '.gutter-sizer'
+                gutter: ".gutter-sizer"
             },
             masonry: {
-                columnWidth: '.gallery-grid__item',
-                gutter: '.gutter-sizer',
+                columnWidth: ".gallery-grid__item",
+                gutter: ".gutter-sizer",
                 isAnimated: true
             }
         });
         new imagesLoaded($portfolioMasonry, function () {
             console.log("ASDSADSAD");
             $portfolioMasonry.arrange({
-                columnWidth: '.gallery-grid__item',
-                gutter: '.gutter-sizer',
-                layoutMode: 'masonry',
+                columnWidth: ".gallery-grid__item",
+                gutter: ".gutter-sizer",
+                layoutMode: "masonry",
             });
         });
         setGrid($portfolioMasonry);
-    }, [])
+    }, []);
 
     function onLoadEvent(grid) {
         return setTimeout(() => {
