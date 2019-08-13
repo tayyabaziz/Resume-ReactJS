@@ -1,18 +1,12 @@
 import path from 'path';
 import fs from 'fs';
 import express from "express";
-import cors from "cors";
-import compression from "compression";
-import dotenv from "dotenv";
 import axios from "axios";
-
 import("./db.config");
-dotenv.config();
+
 const PORT = process.env.PORT || 3000;
 const app = express();
-const router = express.Router()
-app.use(cors())
-app.use(compression())
+const router = express.Router();
 
 const serverRenderer = (req, res, next) => {
     fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
