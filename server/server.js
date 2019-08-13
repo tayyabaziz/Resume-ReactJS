@@ -77,13 +77,12 @@ app.get('/portfolio/:projectName', serverRenderer)
 var routes = require('./projects.route')
 app.get('/api', (req, res) => {
     res.json({ status: 200, message: 'Service is OK.' })
-    res.end()
 })
 app.use('/api/project', routes)
 app.all('/api/*', (req, res) => {
-    res.json({ status: 404, message: 'Page not Found.' })
-    res.end()
+    res.status(404).json('Page not Found.')
 })
+
 app.all('*', (req, res, next) => {
     fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
         if (err) {
