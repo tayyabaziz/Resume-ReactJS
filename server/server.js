@@ -50,21 +50,26 @@ const serverRenderer = (req, res, next) => {
                 break;
             default:
                 if (req.params.projectName) {
-                    const url = req.protocol + '://' + req.get('host') + "/api/project/" + req.params.projectName;
-                    axios.get(url).then(response => {
-                        data = data.replace(
-                            new RegExp("@page_title", 'gi'), response.data.title + " - Tayyab Aziz"
-                        )
-                        data = data.replace(
-                            new RegExp("@page_description", 'gi'), response.data.metaDesc
-                        )
-                        return res.send(data)
-                    })
+                    data = fetchData(req.params.projectName, data, req);
                 }
                 break;
         }
+        return res.send(data);
     })
 }
+
+async function fetchData(projectName, data, req) {
+    const url = req.protocol + '://' + req.get('host') + "/api/project/" + projectName;
+    const responseData = await axios(url);
+    data = data.replace(
+        new RegExp("@page_title", 'gi'), responseData.data.title + " - Tayyab Aziz"
+    )
+    data = data.replace(
+        new RegExp("@page_description", 'gi'), responseData.data.metaDesc
+    )
+    return data;
+}
+
 router.use(
     express.static(path.resolve(__dirname, '..', 'build'), { maxAge: '30d' })
 )
