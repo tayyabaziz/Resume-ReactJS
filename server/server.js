@@ -1,41 +1,18 @@
 import path from 'path';
 import fs from 'fs';
 import express from "express";
+import cors from "cors";
+import compression from "compression";
+import dotenv from "dotenv";
+import axios from "axios";
 
+import("./db.config");
+dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 const router = express.Router()
-
-const projects = {
-    "daaman-design": {
-        title: "Daaman Design",
-        metaDesc: "Daaman Design is an e-Commerce system based on Custom PHP which was designed and developed by me while working at Viaduct Pvt. Ltd. "
-    },
-    "happening-pk-organizer": {
-        title: "Happening.PK Organizer App",
-        metaDesc: "Happening.PK Organizer application was developed for android devices. It was my first android project as a developer at Viaduct Pvt. Ltd. "
-    },
-    "happening-pk-app": {
-        title: "Happening.PK App",
-        metaDesc: "Happening.PK application was developed for android devices. It was my second android project as a developer at Viaduct Pvt. Ltd. after the development of Organizer app for Happening.PK."
-    },
-    "happening-pk": {
-        title: "Happening.PK",
-        metaDesc: "Happening.PK is the event discovery and ticketing platform which was designed and developed by me while working at Viaduct Pvt. Ltd."
-    },
-    "forrun-co": {
-        title: "Forrun.co",
-        metaDesc: "Forrun.co was one of my biggest achievement while working under Viaduct Pvt. Ltd. My role in it includes all the steps of software development life cycle. From planning to development to testing, deployment of project I was in it."
-    },
-    "nkh-group": {
-        title: "NKH Group",
-        metaDesc: "NKH Group website contains e-Commerce system based on Woo-commerce. My role was to install new theme and integrate it according to the clients' needs and manage WordPress Woo-commerce system.",
-    },
-    "amber-batool": {
-        title: "Amber Batool",
-        metaDesc: "Amber Batool is an e-Commerce system based on Woo-commerce. My role in this project was to manage domain and cloud based hosting (Digital Ocean) with WordPress installation and theme integration in it to show features requested by the client."
-    }
-};
+app.use(cors())
+app.use(compression())
 
 const serverRenderer = (req, res, next) => {
     fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
@@ -79,20 +56,19 @@ const serverRenderer = (req, res, next) => {
                 break;
             default:
                 if (req.params.projectName) {
-                    const project = projects[req.params.projectName];
-                    if (project) {
+                    const url = req.protocol + '://' + req.get('host') + "/api/project/" + req.params.projectName;
+                    axios.get(url).then(response => {
                         data = data.replace(
-                            new RegExp("@page_title", 'gi'), project.title + " - Tayyab Aziz"
+                            new RegExp("@page_title", 'gi'), response.data.title + " - Tayyab Aziz"
                         )
                         data = data.replace(
-                            new RegExp("@page_description", 'gi'), project.metaDesc
+                            new RegExp("@page_description", 'gi'), response.data.metaDesc
                         )
-                    }
+                        return res.send(data)
+                    })
                 }
                 break;
         }
-
-        return res.send(data)
     })
 }
 router.use(
@@ -104,7 +80,16 @@ app.use(router)
 app.get('/resume', serverRenderer)
 app.get('/portfolio', serverRenderer)
 app.get('/portfolio/:projectName', serverRenderer)
-
+var routes = require('./projects.route')
+app.get('/api', (req, res) => {
+    res.json({ status: 200, message: 'Service is OK.' })
+    res.end()
+})
+app.use('/api/project', routes)
+app.all('/api/*', (req, res) => {
+    res.json({ status: 404, message: 'Page not Found.' })
+    res.end()
+})
 app.all('*', (req, res, next) => {
     fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
         if (err) {
