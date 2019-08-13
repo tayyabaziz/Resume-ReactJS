@@ -35,7 +35,7 @@ function PortfolioItemDetail(data) {
   }
 
 
-  let ReactHTML = <NoMatch/>
+  let ReactHTML = <NoMatch />;
   if (projectData) {
     ReactHTML = <React.Fragment>
       <Helmet>
@@ -72,7 +72,7 @@ function PortfolioItemDetail(data) {
           })}
         </div>
       </div>
-    </React.Fragment>
+    </React.Fragment>;
   }
   return (
     <React.Suspense fallback={<div className="m-auto text-center" id="hash">
