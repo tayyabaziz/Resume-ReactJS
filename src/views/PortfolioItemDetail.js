@@ -8,10 +8,8 @@ import NoMatch from "./NoMatch";
 
 function PortfolioItemDetail(data) {
   const [projectData, setProject] = useState({});
+  const [zoomEnabled, setZoomEnabled] = useState(false);
   useEffect(() => {
-    mediumZoom('[data-zoom]', {
-      margin: 30
-    });
     async function fetchData() {
       try {
         const url = window.location.origin + "/api/project/" + data.match.params.projectName;
@@ -23,7 +21,20 @@ function PortfolioItemDetail(data) {
       }
     }
     fetchData();
+
+
   }, [data.match.params.projectName]);
+
+  function onLoadEvent() {
+    if (!zoomEnabled) {
+      mediumZoom('[data-zoom]', {
+        margin: 30
+      });
+      setZoomEnabled(true);
+    }
+  }
+
+
   let ReactHTML = <NoMatch/>
   if (projectData) {
     ReactHTML = <React.Fragment>
@@ -55,7 +66,7 @@ function PortfolioItemDetail(data) {
             {ReactHtmlParser(projectData.description)}
           </div>}
         </div>
-        <div className="row">
+        <div onLoad={onLoadEvent} className="row">
           {projectData.images && projectData.images.map(element => {
             return (<div className="col-12 col-sm-6 col-md-4 py-2" key={element} > <img className="rounded-lg img-fluid shadow" data-zoom src={element} alt={projectData.projectName} /></div>);
           })}
@@ -64,7 +75,11 @@ function PortfolioItemDetail(data) {
     </React.Fragment>
   }
   return (
-    ReactHTML
+    <React.Suspense fallback={<div className="m-auto text-center" id="hash">
+      <h1 className="title title--h1 m-auto">Loading...</h1>
+    </div>}>
+      {ReactHTML}
+    </React.Suspense>
   );
 }
 
