@@ -1,10 +1,15 @@
 import path from 'path';
+import dotenv from "dotenv";
 import fs from 'fs';
 import express from "express";
 import cors from "cors";
 import compression from "compression";
 import axios from "axios";
-import("./db.config");
+import "./db.config";
+
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config();
+}
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -54,7 +59,15 @@ const serverRenderer = (req, res, next) => {
                 break;
             default:
                 if (req.params.projectName) {
-                    data = fetchData(req.params.projectName, data, req);
+                    const url = req.protocol + '://' + req.get('host') + "/api/project/" + req.params.projectName;
+                    console.log(url);
+                    const responseData = fetchData(url);
+                    data = data.replace(
+                        new RegExp("@page_title", 'gi'), responseData.title + " - Tayyab Aziz"
+                    )
+                    data = data.replace(
+                        new RegExp("@page_description", 'gi'), responseData.metaDesc
+                    )
                 }
                 break;
         }
@@ -62,16 +75,9 @@ const serverRenderer = (req, res, next) => {
     })
 }
 
-async function fetchData(projectName, data, req) {
-    const url = req.protocol + '://' + req.get('host') + "/api/project/" + projectName;
+async function fetchData(url) {
     const responseData = await axios(url);
-    data = data.replace(
-        new RegExp("@page_title", 'gi'), responseData.data.title + " - Tayyab Aziz"
-    )
-    data = data.replace(
-        new RegExp("@page_description", 'gi'), responseData.data.metaDesc
-    )
-    return data;
+    return responseData.data;
 }
 
 router.use(
