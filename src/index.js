@@ -5,7 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import "./assets/styles/style.css";
 import "./assets/demo/style-demo.css";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.hydrate(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

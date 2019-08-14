@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import mediumZoom from "medium-zoom";
 import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
 import PortfolioGridItem from "./PortfolioGridItem";
@@ -12,55 +13,57 @@ const image061 = "/images/portfolio/image-061.jpg";
 const image071 = "/images/portfolio/image-071.jpg";
 
 function PortfolioGrid(data) {
-    const [grid, setGrid] = useState({});
+    const [zoomEnabled, setZoomEnabled] = useState(false);
+    const [grid, setGrid] = useState(false);
+    const [imgLoaded, setImageLoaded] = useState(false);
     useEffect(() => {
-        const grid2 = document.querySelector(".js-masonry");
-        var $portfolioMasonry = new Isotope(grid2, {
-            itemSelector: ".gallery-grid__item",
-            layoutMode: "masonry",
-            percentPosition: true,
-            transitionDuration: "0.5s",
-            hiddenStyle: {
-                opacity: 0,
-                transform: "scale(0.001)"
-            },
-            visibleStyle: {
-                opacity: 1,
-                transform: "scale(1)"
-            },
-            fitRows: {
-                gutter: ".gutter-sizer"
-            },
-            masonry: {
-                columnWidth: ".gallery-grid__item",
-                gutter: ".gutter-sizer",
-                isAnimated: true
-            }
-        });
-        new imagesLoaded($portfolioMasonry, function () {
-            console.log("ASDSADSAD");
-            $portfolioMasonry.arrange({
-                columnWidth: ".gallery-grid__item",
-                gutter: ".gutter-sizer",
+        if (!grid) {
+            const grid2 = document.querySelector(".js-masonry");
+            var $portfolioMasonry = new Isotope(grid2, {
+                itemSelector: ".gallery-grid__item",
                 layoutMode: "masonry",
+                percentPosition: true,
+                transitionDuration: "0.5s",
+                hiddenStyle: {
+                    opacity: 0,
+                    transform: "scale(0.001)"
+                },
+                visibleStyle: {
+                    opacity: 1,
+                    transform: "scale(1)"
+                },
+                fitRows: {
+                    gutter: ".gutter-sizer"
+                },
+                masonry: {
+                    columnWidth: ".gallery-grid__item",
+                    gutter: ".gutter-sizer",
+                    isAnimated: true
+                }
             });
-        });
-        setGrid($portfolioMasonry);
-    }, []);
-
-    function onLoadEvent(grid) {
-        return setTimeout(() => {
-            if (Object.entries(grid).length !== 0) {
-                console.log("test");
-                grid.arrange(grid.options);
-            }
-        }, 100);
+            setGrid($portfolioMasonry);
+        }
+        if (grid) {
+            var imageLoad = new imagesLoaded(document.querySelector(".js-masonry"));
+            imageLoad.on("done", () => {
+                grid.arrange();
+            });
+        }
+    }, [grid]);
+    function onLoadEvent() {
+        if (!zoomEnabled) {
+            mediumZoom('[data-zoom]', {
+                margin: 30
+            });
+            setZoomEnabled(true);
+        }
     }
+
     return (
         <React.Fragment>
-            <PortfolioGridFilter onLoad={onLoadEvent(grid)}  grid={grid} />
+            <PortfolioGridFilter grid={grid} />
             {/*Content*/}
-            <div className="gallery-grid js-masonry js-filter-container">
+            <div onLoad={onLoadEvent} className="gallery-grid js-masonry js-filter-container">
                 <div className="gutter-sizer"></div>
                 <PortfolioGridItem portfolio_category_class="category-php" portfolio_image={image011} portfolio_title="Daaman Design" portfolio_category="PHP" portfolio_link="/portfolio/daaman-design/" />
                 <PortfolioGridItem portfolio_category_class="category-android" portfolio_image={image021} portfolio_title="Happening.PK Organizer App" portfolio_category="Android" portfolio_link="/portfolio/happening-pk-organizer/" />

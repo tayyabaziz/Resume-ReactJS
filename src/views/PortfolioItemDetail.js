@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NoMatch from "./NoMatch";
-import PortfolioItemPlaceholder from "./PortfolioItemPlaceholder";
+import PortfolioItemPlaceholder from "../components/PortfolioItemPlaceholder";
 import PortfolioItemDetailData from "./PortfolioItemDetailData";
 
 function PortfolioItemDetail(data) {
