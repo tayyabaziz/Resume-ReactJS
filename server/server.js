@@ -2,8 +2,6 @@ import path from 'path';
 import dotenv from "dotenv";
 import fs from 'fs';
 import express from "express";
-import cors from "cors";
-import compression from "compression";
 import axios from "axios";
 import "./db.config";
 
@@ -13,9 +11,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-app.use(cors());
-app.use(compression());
-const router = express.Router();
+
+app.use(express.static(path.resolve(__dirname, '..', 'build'), { maxAge: '30d' }));
 
 const serverRenderer = (req, res, next) => {
     fs.readFile(path.resolve('./build/index.html'), 'utf8', async (err, data) => {
@@ -83,12 +80,7 @@ const serverRenderer = (req, res, next) => {
     })
 }
 
-router.use(
-    express.static(path.resolve(__dirname, '..', 'build'), { maxAge: '30d' })
-)
-
 app.get('/', serverRenderer);
-app.use(router);
 app.get('/resume', serverRenderer);
 app.get('/portfolio', serverRenderer);
 app.get('/portfolio/:projectName', serverRenderer);

@@ -11,8 +11,8 @@ function NoMatch() {
         <link rel="canonical" href={window.location.href} />
       </Helmet>
       {/*NoMatch*/}
-      <div className="pb-2">
-        <h1 className="title title--h1 text-center">404 Page Not Found</h1>
+      <div className="text-center py-5">
+        <h1 className="title title--h1">404 Page Not Found</h1>
         </div>
     </React.Fragment>
   );
