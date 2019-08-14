@@ -30,7 +30,7 @@ function PortfolioGridFilter(data) {
         });
         return true;
     }
-
+    var categories = Array.from(new Set(data.categories))
     return (
         <React.Fragment>
             {/*Filter*/}
@@ -39,9 +39,9 @@ function PortfolioGridFilter(data) {
                 <ul className="filter">
                     <li className="filter__item">Category</li>
                     <li className="filter__item active" data-filter="*" onClick={onFilterChange}><a className="filter__link active" href="#/">All</a></li>
-                    <li className="filter__item" data-filter=".category-php" onClick={onFilterChange}><a className="filter__link" href="#/">PHP</a></li>
-                    <li className="filter__item" data-filter=".category-android" onClick={onFilterChange}><a className="filter__link" href="#/">Android</a></li>
-                    <li className="filter__item" data-filter=".category-wordpress" onClick={onFilterChange}><a className="filter__link" href="#/">Wordpress</a></li>
+                    {categories && categories.map(element => {
+                        return (<li className="filter__item" data-filter={".category-" + element.toLowerCase()} onClick={onFilterChange}><a className="filter__link" href="#/">{element}</a></li>);
+                    })}
                 </ul>
                 <input type="hidden" name="changemetoo" />
             </div>

@@ -4,13 +4,6 @@ import Isotope from "isotope-layout";
 import imagesLoaded from "imagesloaded";
 import PortfolioGridItem from "./PortfolioGridItem";
 import PortfolioGridFilter from "./PortfolioGridFilter";
-const image011 = "/images/portfolio/image-011.jpg";
-const image021 = "/images/portfolio/image-021.jpg";
-const image031 = "/images/portfolio/image-031.jpg";
-const image041 = "/images/portfolio/image-041.jpg";
-const image051 = "/images/portfolio/image-051.jpg";
-const image061 = "/images/portfolio/image-061.jpg";
-const image071 = "/images/portfolio/image-071.jpg";
 
 function PortfolioGrid(data) {
     const [zoomEnabled, setZoomEnabled] = useState(false);
@@ -49,7 +42,21 @@ function PortfolioGrid(data) {
                 grid.arrange();
             });
         }
+
+        window.addEventListener("resize", onResizeEvent);
+
+        var resizeTimer;
+        function onResizeEvent() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+                if (grid) {
+                    console.log(window.innerHeight, window.innerWidth);
+                    grid.arrange();
+                }
+            }, 300);
+        }
     }, [grid]);
+
     function onLoadEvent() {
         if (!zoomEnabled) {
             mediumZoom('[data-zoom]', {
@@ -58,20 +65,18 @@ function PortfolioGrid(data) {
             setZoomEnabled(true);
         }
     }
-
+    const categories = data.projectData && data.projectData.map(element => {
+        return element.category;
+    });
     return (
         <React.Fragment>
-            <PortfolioGridFilter grid={grid} />
+            <PortfolioGridFilter categories={categories} grid={grid} />
             {/*Content*/}
             <div onLoad={onLoadEvent} className="gallery-grid js-masonry js-filter-container">
                 <div className="gutter-sizer"></div>
-                <PortfolioGridItem portfolio_category_class="category-php" portfolio_image={image011} portfolio_title="Daaman Design" portfolio_category="PHP" portfolio_link="/portfolio/daaman-design/" />
-                <PortfolioGridItem portfolio_category_class="category-android" portfolio_image={image021} portfolio_title="Happening.PK Organizer App" portfolio_category="Android" portfolio_link="/portfolio/happening-pk-organizer/" />
-                <PortfolioGridItem portfolio_category_class="category-android" portfolio_image={image031} portfolio_title="Happening.PK App" portfolio_category="Android" portfolio_link="/portfolio/happening-pk-app/" />
-                <PortfolioGridItem portfolio_category_class="category-php" portfolio_image={image041} portfolio_title="Happening.PK" portfolio_category="PHP" portfolio_link="/portfolio/happening-pk/" />
-                <PortfolioGridItem portfolio_category_class="category-php" portfolio_image={image051} portfolio_title="Forrun.co" portfolio_category="PHP" portfolio_link="/portfolio/forrun-co/" />
-                <PortfolioGridItem portfolio_category_class="category-wordpress" portfolio_image={image061} portfolio_title="NKH Group" portfolio_category="Wordpress" portfolio_link="/portfolio/nkh-group/" />
-                <PortfolioGridItem portfolio_category_class="category-wordpress" portfolio_image={image071} portfolio_title="Amber Batool" portfolio_category="Wordpress" portfolio_link="/portfolio/amber-batool/" />
+                {data.projectData && data.projectData.map(element => {
+                    return (<PortfolioGridItem portfolio_category_class={"category-" + element.category.toLowerCase()} portfolio_image={element.images[0]} portfolio_title={element.title} portfolio_category={element.category}portfolio_link={"/portfolio/"+ element.projectName.toLowerCase()+"/" }/>);
+                })}
             </div>
         </React.Fragment>
     );

@@ -33,12 +33,16 @@ function PortfolioItemDetail(data) {
     }
   }, [data.match.params.projectName, isLoading, projectData]);
 
-  let ReactHTML = <NoMatch />;
+  let ReactHTML = <React.Fragment>
+      <div className="text-center py-5">
+        <h1 className="title title--h1">Data Not Found</h1>
+        </div>
+  </React.Fragment>;
   if (projectData) {
     ReactHTML = <PortfolioItemDetailData projectData={projectData} history={data.history}/>;
-}
+  }
 
-return (
+  return (
     <React.Fragment>
     {!isLoading ? ReactHTML : <PortfolioItemPlaceholder history={data.history}/>}
     </React.Fragment>
