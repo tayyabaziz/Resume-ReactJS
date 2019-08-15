@@ -41,7 +41,7 @@ function AboutPlaceholder() {
                 <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
               </ContentLoader>
               <div>
-                <ContentLoader style={{width: "100%", height: "20px", "margin-top": "-7px"}} >
+                <ContentLoader style={{width: "100%", height: "20px", marginTop: "-7px"}} >
                   {/* Pure SVG */}
                   <rect x="40" y="0" rx="1" ry="1" width="100%" height="100%" />
                 </ContentLoader>
@@ -62,7 +62,7 @@ function AboutPlaceholder() {
                 <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
               </ContentLoader>
               <div>
-                <ContentLoader style={{ width: "100%", height: "20px", "margin-top": "-7px" }} >
+                <ContentLoader style={{ width: "100%", height: "20px", marginTop: "-7px" }} >
                   {/* Pure SVG */}
                   <rect x="40" y="0" rx="1" ry="1" width="100%" height="100%" />
                 </ContentLoader>
@@ -83,7 +83,7 @@ function AboutPlaceholder() {
                 <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
               </ContentLoader>
               <div>
-                <ContentLoader style={{ width: "100%", height: "20px", "margin-top": "-7px" }} >
+                <ContentLoader style={{ width: "100%", height: "20px", marginTop: "-7px" }} >
                   {/* Pure SVG */}
                   <rect x="40" y="0" rx="1" ry="1" width="100%" height="100%" />
                 </ContentLoader>
