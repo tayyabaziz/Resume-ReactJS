@@ -4,12 +4,12 @@ import ContentLoader from "react-content-loader";
 function PortfolioPlaceholder() {
   const items = [];
   for (let index = 0; index < 9; index++) {
-    items[index] = <div className="col-12 col-md-6 col-lg-4 py-2">
+    items.push(<div className="col-12 col-md-6 col-lg-4 py-2">
       <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
         {/* Pure SVG */}
         <rect x="0" y="0" rx="1" ry="1" width="100%" height="300px" />
       </ContentLoader>
-    </div>;
+    </div>);
   }
 
   return (
