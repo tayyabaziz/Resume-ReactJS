@@ -24,37 +24,34 @@ const serverRenderer = (req, res, next) => {
             return res.status(500).send("An error occurred");
         }
         const pathname = req.path.replace(/\//g, "");
-        const fullUrl = req.protocol + "://" + req.get("host") + req.originalUrl;
-        data = data.replace(
-            new RegExp("@public_url", "gi"), req.protocol + "://" + req.get("host")
-        )
+        const fullUrl = process.env.PUBLIC_URL + req.originalUrl;
 
         data = data.replace(
-            new RegExp("@page_url", "gi"), fullUrl
+            new RegExp(process.env.PUBLIC_URL +"//", "gi"), fullUrl
         )
         switch (pathname) {
             case "":
                 data = data.replace(
-                    new RegExp("@page_title", "gi"), "Tayyab Aziz - A Full Stack Web Developer and Gamer"
+                    new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "Tayyab Aziz - A Full Stack Web Developer and Gamer"
                 )
                 data = data.replace(
-                    new RegExp("@page_description", "gi"), "Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun."
+                    new RegExp("Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun.", "gi"), "Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun."
                 )
                 break;
             case "resume":
                 data = data.replace(
-                    new RegExp("@page_title", "gi"), "RESUME - Tayyab Aziz"
+                    new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "RESUME - Tayyab Aziz"
                 )
                 data = data.replace(
-                    new RegExp("@page_description", "gi"), "Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun."
+                    new RegExp("Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun.", "gi"), "Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun."
                 )
                 break;
             case "portfolio":
                 data = data.replace(
-                    new RegExp("@page_title", "gi"), "PORTFOLIO - Tayyab Aziz"
+                    new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "PORTFOLIO - Tayyab Aziz"
                 )
                 data = data.replace(
-                    new RegExp("@page_description", "gi"), "Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun."
+                    new RegExp("Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun.", "gi"), "Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun."
                 )
                 break;
             default:
@@ -63,16 +60,16 @@ const serverRenderer = (req, res, next) => {
                         const url = req.protocol + "://" + req.get("host") + "/api/project/" + req.params.projectName;
                         const responseData = await axios(url);
                         data = data.replace(
-                            new RegExp("@page_title", "gi"), responseData.data.title + " - Tayyab Aziz"
+                            new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), responseData.data.title + " - Tayyab Aziz"
                         )
                         data = data.replace(
-                            new RegExp("@page_description", "gi"), responseData.data.metaDesc
+                            new RegExp("Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun.", "gi"), responseData.data.metaDesc
                         )
                     }
                     catch (err) {
                         console.log(err.message);
                         data = data.replace(
-                            new RegExp("@page_title", "gi"), "404 - Tayyab Aziz"
+                            new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "404 - Tayyab Aziz"
                         )
                         return res.status(404).send(data);
                     }
@@ -103,7 +100,7 @@ app.all("*", (req, res, next) => {
             return res.status(500).send("An error occurred");
         }
         data = data.replace(
-            new RegExp("@page_title", "gi"), "404 - Tayyab Aziz"
+            new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "404 - Tayyab Aziz"
         )
         return res.status(404).send(data);
     });
