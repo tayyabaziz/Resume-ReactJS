@@ -39,7 +39,7 @@ function PortfolioGridFilter(data) {
                 <ul className="filter">
                     <li className="filter__item">Category</li>
                     <li className="filter__item active" data-filter="*" onClick={onFilterChange}><a className="filter__link active" href="#/">All</a></li>
-                    {categories.map(element => {
+                    {categories.map((element) => {
                         return (<li key={element.key} className="filter__item" data-filter={".category-" + element.toLowerCase()} onClick={onFilterChange}><a className="filter__link" href="#/">{element}</a></li>);
                     })}
                 </ul>

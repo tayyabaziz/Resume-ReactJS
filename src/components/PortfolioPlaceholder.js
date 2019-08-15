@@ -1,7 +1,7 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
-function ResumePlaceholder() {
+function PortfolioPlaceholder() {
   return (
     <React.Fragment>
       <div className="pb-2" id="hash">
@@ -80,4 +80,4 @@ function ResumePlaceholder() {
   );
 }
 
-export default ResumePlaceholder;
+export default PortfolioPlaceholder;

@@ -77,7 +77,7 @@ function PortfolioGrid(data) {
             {/*Content*/}
             <div onLoad={onLoadEvent} className="gallery-grid js-masonry js-filter-container">
                 <div className="gutter-sizer"></div>
-                {data.projectData && data.projectData.map(element => {
+                {data.projectData && data.projectData.map((element) => {
                     return (<PortfolioGridItem key={element.key} portfolio_category_class={"category-" + element.category.toLowerCase()} portfolio_image={element.images[0]} portfolio_title={element.title} portfolio_category={element.category}portfolio_link={"/portfolio/"+ element.projectName.toLowerCase()+"/" }/>);
                 })}
             </div>
