@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import mediumZoom from "medium-zoom";
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from "react-html-parser";
 import { Helmet } from "react-helmet";
 import iconBack from "../assets/icons/icon-back.svg";
 
@@ -8,7 +8,7 @@ function PortfolioItemDetailData(data) {
   const [zoomEnabled, setZoomEnabled] = useState(false);
   function onLoadEvent() {
     if (!zoomEnabled) {
-      mediumZoom('[data-zoom]', {
+      mediumZoom("[data-zoom]", {
         margin: 30
       });
       setZoomEnabled(true);

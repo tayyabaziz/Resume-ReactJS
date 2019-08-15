@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import Progress from "./Progress";
 
 function Skills(data) {
-    useEffect(() => {
-        onLoadProgress()
-    }, []);
     function onLoadProgress() {
         document.querySelectorAll(".progress-bar").forEach(element => {
             element.setAttribute("style", `width: ${element.getAttribute("aria-valuenow")}%; z-index:2;`);
         });
     }
+    useEffect(() => {
+        onLoadProgress()
+    }, []);
     return (
         <React.Fragment>
             {/* Skills*/}

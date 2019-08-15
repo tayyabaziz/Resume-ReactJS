@@ -42,10 +42,6 @@ function PortfolioGrid(data) {
             });
         }
 
-        if (window.location.pathname === "/portfolio/") {
-            window.addEventListener("resize", onResizeEvent);
-        }
-
         var resizeTimer;
         function onResizeEvent() {
             clearTimeout(resizeTimer);
@@ -55,6 +51,9 @@ function PortfolioGrid(data) {
                 }
             }, 300);
         }
+        if (window.location.pathname === "/portfolio/") {
+            window.addEventListener("resize", onResizeEvent);
+        }
         return () => {
             document.removeEventListener("resize", onResizeEvent);
         };
@@ -62,13 +61,13 @@ function PortfolioGrid(data) {
 
     function onLoadEvent() {
         if (!zoomEnabled) {
-            mediumZoom('[data-zoom]', {
+            mediumZoom("[data-zoom]", {
                 margin: 30
             });
             setZoomEnabled(true);
         }
     }
-    const categories = data.projectData && data.projectData.map(element => {
+    const categories = data.projectData && data.projectData.map((element) => {
         return element.category;
     });
     return (

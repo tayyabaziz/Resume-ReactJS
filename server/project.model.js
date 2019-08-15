@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const collectionName = 'projects'
+const collectionName = "projects";
 const collectionField = {
   title: {
     type: String,
@@ -32,7 +32,7 @@ const collectionField = {
   images: {
     type: Array,
   }
-}
+};
 const projectSchema = new mongoose.Schema(collectionField);
 const projectModel = mongoose.model(collectionName, projectSchema);
 
