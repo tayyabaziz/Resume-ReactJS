@@ -69,7 +69,7 @@ const serverRenderer = (req, res, next) => {
                             new RegExp("@page_description", "gi"), responseData.data.metaDesc
                         )
                     }
-                    catch(err) {
+                    catch (err) {
                         console.log(err.message);
                         data = data.replace(
                             new RegExp("@page_title", "gi"), "404 - Tayyab Aziz"
@@ -80,7 +80,7 @@ const serverRenderer = (req, res, next) => {
                 break;
         }
         return res.send(data);
-    })
+    });
 }
 
 app.get("/", serverRenderer);
@@ -93,7 +93,7 @@ app.get("/api", (req, res) => {
 });
 app.use("/api/project", routes);
 app.all("/api/*", (req, res) => {
-    res.status(404).json("Page not Found.")
+    res.status(404).json("Page not Found.");
 });
 
 app.all("*", (req, res, next) => {
@@ -106,8 +106,8 @@ app.all("*", (req, res, next) => {
             new RegExp("@page_title", "gi"), "404 - Tayyab Aziz"
         )
         return res.status(404).send(data);
-    })
-})
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`SSR running on port ${PORT}`);
