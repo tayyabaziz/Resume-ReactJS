@@ -2,6 +2,16 @@ import React from "react";
 import ContentLoader from "react-content-loader";
 
 function PortfolioPlaceholder() {
+  const items = [];
+  for (let index = 0; index < 9; index++) {
+    items[index] = <div className="col-12 col-md-6 col-lg-4 py-2">
+      <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
+        {/* Pure SVG */}
+        <rect x="0" y="0" rx="1" ry="1" width="100%" height="300px" />
+      </ContentLoader>
+    </div>;
+  }
+
   return (
     <React.Fragment>
       <div className="pb-2" id="hash">
@@ -20,60 +30,7 @@ function PortfolioPlaceholder() {
           <rect x="80" y="0" rx="1" ry="1" width="35px" height="100%" />
         </ContentLoader>
         <div className="row">
-          <div className="col-12 col-md-6 col-lg-4 py-2">
-            <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
-              {/* Pure SVG */}
-              <rect x="0" y="0" rx="1" ry="1" width="100%" height="300px" />
-            </ContentLoader>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4 py-2">
-            <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
-              {/* Pure SVG */}
-              <rect x="0" y="0" rx="1" ry="1" width="100%" height="300px" />
-            </ContentLoader>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4 py-2">
-            <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
-              {/* Pure SVG */}
-              <rect x="0" y="0" rx="1" ry="1" width="100%" height="400px" />
-            </ContentLoader>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4 py-2">
-            <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
-              {/* Pure SVG */}
-              <rect x="0" y="0" rx="1" ry="1" width="100%" height="300px" />
-            </ContentLoader>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4 py-2">
-            <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
-              {/* Pure SVG */}
-              <rect x="0" y="0" rx="1" ry="1" width="100%" height="300px" />
-            </ContentLoader>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4 py-2">
-            <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
-              {/* Pure SVG */}
-              <rect x="0" y="0" rx="1" ry="1" width="100%" height="400px" />
-            </ContentLoader>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4 py-2">
-            <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
-              {/* Pure SVG */}
-              <rect x="0" y="0" rx="1" ry="1" width="100%" height="300px" />
-            </ContentLoader>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4 py-2">
-            <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
-              {/* Pure SVG */}
-              <rect x="0" y="0" rx="1" ry="1" width="100%" height="300px" />
-            </ContentLoader>
-          </div>
-          <div className="col-12 col-md-6 col-lg-4 py-2">
-            <ContentLoader className="border shadow rounded-lg" style={{ width: "100%", height: "300px" }}>
-              {/* Pure SVG */}
-              <rect x="0" y="0" rx="1" ry="1" width="100%" height="400px" />
-            </ContentLoader>
-          </div>
+          {items}
         </div>
       </div>
     </React.Fragment>
