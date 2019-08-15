@@ -1,30 +1,21 @@
 import React from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { Route, Switch } from "react-router-dom";
 import About from "../views/About";
 import Resume from "../views/Resume";
 import Portfolio from "../views/Portfolio";
 import PortfolioItemDetail from "../views/PortfolioItemDetail";
 import NoMatch from "../views/NoMatch";
 
-function RouteContainer ({location}) {
+function RouteContainer () {
   return (
-    <TransitionGroup>
-      <CSSTransition
-        key={location.key}
-        timeout={{ enter: 300, exit: 10 }}
-        classNames='fade'
-      >
-        <Switch location={location}>
-          <Route exact path={"/"} component={About} />
-          <Route exact path={"/resume/"} component={Resume} />
-          <Route exact path={"/portfolio/"} component={Portfolio} />
-          <Route exact path={"/portfolio/:projectName"} component={PortfolioItemDetail} />
-          <Route path="*" component={NoMatch} status={404}/>
-        </Switch>
-      </CSSTransition>
-    </TransitionGroup>
+    <Switch>
+      <Route exact path={"/"} component={About} />
+      <Route exact path={"/resume/"} component={Resume} />
+      <Route exact path={"/portfolio/"} component={Portfolio} />
+      <Route exact path={"/portfolio/:projectName"} component={PortfolioItemDetail} />
+      <Route path="*" component={NoMatch} status={404} />
+    </Switch>
   );
 }
 
-export default withRouter(RouteContainer);
+export default RouteContainer;
