@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
                 res.status(200).json(data);
             }
         }
-    })
+    });
 });
 router.get("/:projectName", (req, res) => {
     projectModel.findOne().where("projectName", req.params.projectName).exec((err, data) => {
