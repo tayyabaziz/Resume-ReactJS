@@ -22,7 +22,7 @@ function PortfolioPlaceholder() {
           </ContentLoader>
         </h1>
       </div>
-      <div className="pb-0">
+      <div className="pb-2">
         <ContentLoader style={{ height: "27px", width: "100%" }}>
           {/* Pure SVG */}
           <rect x="0" y="0" rx="1" ry="1" width="35px" height="100%" />

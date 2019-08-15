@@ -1,29 +1,29 @@
-import path from 'path';
+import path from "path";
 import dotenv from "dotenv";
-import fs from 'fs';
+import fs from "fs";
 import express from "express";
 import axios from "axios";
 import "./db.config";
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== "production") {
     dotenv.config();
 }
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, '..', 'build'), { maxAge: '30d' }));
+app.use(express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" }));
 
 const serverRenderer = (req, res, next) => {
-    fs.readFile(path.resolve('./build/index.html'), 'utf8', async (err, data) => {
+    fs.readFile(path.resolve("./build/index.html"), "utf8", async (err, data) => {
         if (err) {
             console.error(err);
-            return res.status(500).send('An error occurred');
+            return res.status(500).send("An error occurred");
         }
         const pathname = req.path.replace(/\//g, "");
-        const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+        const fullUrl = req.protocol + "://" + req.get("host") + req.originalUrl;
         data = data.replace(
-            new RegExp("@public_url", "gi"), req.protocol + '://' + req.get('host')
+            new RegExp("@public_url", "gi"), req.protocol + "://" + req.get("host")
         )
 
         data = data.replace(
@@ -57,7 +57,7 @@ const serverRenderer = (req, res, next) => {
             default:
                 if (req.params.projectName) {
                     try {
-                        const url = req.protocol + '://' + req.get('host') + "/api/project/" + req.params.projectName;
+                        const url = req.protocol + "://" + req.get("host") + "/api/project/" + req.params.projectName;
                         const responseData = await axios(url);
                         data = data.replace(
                             new RegExp("@page_title", "gi"), responseData.data.title + " - Tayyab Aziz"
@@ -80,24 +80,24 @@ const serverRenderer = (req, res, next) => {
     })
 }
 
-app.get('/', serverRenderer);
-app.get('/resume', serverRenderer);
-app.get('/portfolio', serverRenderer);
-app.get('/portfolio/:projectName', serverRenderer);
-var routes = require('./projects.route');
-app.get('/api', (req, res) => {
-    res.json({ status: 200, message: 'Service is OK.' });
+app.get("/", serverRenderer);
+app.get("/resume", serverRenderer);
+app.get("/portfolio", serverRenderer);
+app.get("/portfolio/:projectName", serverRenderer);
+var routes = require("./projects.route");
+app.get("/api", (req, res) => {
+    res.json({ status: 200, message: "Service is OK." });
 });
-app.use('/api/project', routes);
-app.all('/api/*', (req, res) => {
-    res.status(404).json('Page not Found.')
+app.use("/api/project", routes);
+app.all("/api/*", (req, res) => {
+    res.status(404).json("Page not Found.")
 });
 
-app.all('*', (req, res, next) => {
-    fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
+app.all("*", (req, res, next) => {
+    fs.readFile(path.resolve("./build/index.html"), "utf8", (err, data) => {
         if (err) {
             console.error(err);
-            return res.status(500).send('An error occurred');
+            return res.status(500).send("An error occurred");
         }
         data = data.replace(
             new RegExp("@page_title", "gi"), "404 - Tayyab Aziz"
