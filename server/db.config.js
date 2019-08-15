@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect(process.env.DB || "mongodb://localhost:27017/tayyabaziz", { useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect(process.env.DB, { useNewUrlParser: true, useFindAndModify: false });
 
 const db = mongoose.connection;
 db.on("error", function (err) {
