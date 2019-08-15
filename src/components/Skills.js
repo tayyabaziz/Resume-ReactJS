@@ -3,7 +3,7 @@ import Progress from "./Progress";
 
 function Skills(data) {
     function onLoadProgress() {
-        document.querySelectorAll(".progress-bar").forEach(element => {
+        document.querySelectorAll(".progress-bar").forEach((element) => {
             element.setAttribute("style", `width: ${element.getAttribute("aria-valuenow")}%; z-index:2;`);
         });
     }
