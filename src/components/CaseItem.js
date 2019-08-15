@@ -14,7 +14,7 @@ function CaseItem(data) {
     return (
         <React.Fragment>
             {/*Case Item*/}
-            < div className="col-12 col-sm-6 col-md-4" >
+            <div className="col-12 col-sm-6 col-md-4" >
                 <div className="case-item box box__second">
                     {icon}
                     <div>

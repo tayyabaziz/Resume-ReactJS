@@ -24,7 +24,6 @@ function Content() {
           {/*Content*/}
           <div className="col-12 col-md-12 col-xl-9">
             <div className="box pb-0">
-
                 <Menu />
                 <RouteContainer />
             </div>

@@ -8,7 +8,6 @@ import PortfolioGridFilter from "./PortfolioGridFilter";
 function PortfolioGrid(data) {
     const [zoomEnabled, setZoomEnabled] = useState(false);
     const [grid, setGrid] = useState(false);
-    const [imgLoaded, setImageLoaded] = useState(false);
     useEffect(() => {
         if (!grid) {
             const grid2 = document.querySelector(".js-masonry");

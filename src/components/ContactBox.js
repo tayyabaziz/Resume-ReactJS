@@ -13,7 +13,6 @@ function ContactBox () {
           <NavLink to="/">
             <image href={imageFile} height="100%" width="100%" />
           </NavLink>
-
         </g>
       </svg>
       <div className="text-center">
