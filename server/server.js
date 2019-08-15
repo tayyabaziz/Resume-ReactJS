@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import fs from "fs";
 import express from "express";
 import axios from "axios";
+import cors from "cors";
+import compression from "compression";
 import "./db.config";
 
 if (process.env.NODE_ENV !== "production") {
@@ -11,7 +13,8 @@ if (process.env.NODE_ENV !== "production") {
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-
+app.use(cors());
+app.use(compression());
 app.use(express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" }));
 
 const serverRenderer = (req, res, next) => {
