@@ -48,7 +48,7 @@ function PortfolioItemDetailData(data) {
         </div>
         <div onLoad={onLoadEvent} className="row">
           {projectData.images && projectData.images.map(element => {
-            return (<div className="col-12 col-sm-6 col-md-4 py-2" key={element} > <img className="rounded-lg img-fluid shadow" data-zoom src={element} alt={projectData.projectName} /></div>);
+            return (<div className="col-12 col-md-6 col-lg-4 py-2" key={element} > <img className="rounded-lg img-fluid shadow" data-zoom src={element} alt={projectData.projectName} /></div>);
           })}
         </div>
       </div>

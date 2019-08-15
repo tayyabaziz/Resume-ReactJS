@@ -42,14 +42,15 @@ function PortfolioGrid(data) {
             });
         }
 
-        window.addEventListener("resize", onResizeEvent);
+        if (window.location.pathname === "/portfolio/") {
+            window.addEventListener("resize", onResizeEvent);
+        }
 
         var resizeTimer;
         function onResizeEvent() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function () {
                 if (grid) {
-                    console.log(window.innerHeight, window.innerWidth);
                     grid.arrange();
                 }
             }, 300);
