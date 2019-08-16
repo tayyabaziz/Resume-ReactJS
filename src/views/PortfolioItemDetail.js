@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PortfolioItemPlaceholder from "../components/PortfolioItemPlaceholder";
-import PortfolioItemDetailData from "./PortfolioItemDetailData";
+import PortfolioItemDetailData from "../components/PortfolioItemDetailData";
 
 function PortfolioItemDetail(data) {
   const [isLoading, setLoading] = useState(true);
