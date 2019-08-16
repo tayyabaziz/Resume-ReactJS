@@ -106,34 +106,40 @@ function ResumePlaceholder() {
           </div>
           <div className="col-12 col-lg-6">
             <div className="box box__second">
-              <ContentLoader className="d-none d-sm-block" style={{ height: "120px", width: "100%" }} viewBox="0 0 400 120">
-                {/* Pure SVG */}
-                <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="24px" />
-                <rect x="0" y="46" rx="2%" ry="20%" width="100%" height="24px" />
-                <rect x="0" y="96" rx="2%" ry="20%" width="100%" height="24px" />
-              </ContentLoader>
-              <ContentLoader className="d-block d-sm-none" style={{ height: "104px", width: "100%" }} viewBox="0 0 400 104">
-                {/* Pure SVG */}
-                <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="24px" />
-                <rect x="0" y="46" rx="2%" ry="20%" width="100%" height="24px" />
-                <rect x="0" y="96" rx="2%" ry="20%" width="100%" height="24px" />
-              </ContentLoader>
+              <div className="progress">
+                <ContentLoader style={{ height: "24px", width: "100%" }}>
+                  <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="100%" />
+                </ContentLoader>
+              </div>
+              <div className="progress">
+                <ContentLoader style={{ height: "24px", width: "100%" }}>
+                  <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="100%" />
+                </ContentLoader>
+              </div>
+              <div className="progress">
+                <ContentLoader style={{ height: "24px", width: "100%" }}>
+                  <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="100%" />
+                </ContentLoader>
+              </div>
             </div>
           </div>
           <div className="col-12 col-lg-6 mt-2  mt-lg-0">
             <div className="box box__second">
-              <ContentLoader className="d-none d-sm-block" style={{ height: "120px", width: "100%" }} viewBox="0 0 400 120">
-                {/* Pure SVG */}
-                <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="24px" />
-                <rect x="0" y="46" rx="2%" ry="20%" width="100%" height="24px" />
-                <rect x="0" y="96" rx="2%" ry="20%" width="100%" height="24px" />
-              </ContentLoader>
-              <ContentLoader className="d-block d-sm-none" style={{ height: "104px", width: "100%" }} viewBox="0 0 400 104">
-                {/* Pure SVG */}
-                <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="24px" />
-                <rect x="0" y="46" rx="2%" ry="20%" width="100%" height="24px" />
-                <rect x="0" y="96" rx="2%" ry="20%" width="100%" height="24px" />
-              </ContentLoader>
+              <div className="progress">
+                <ContentLoader style={{ height: "24px", width: "100%" }}>
+                  <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="100%" />
+                </ContentLoader>
+              </div>
+              <div className="progress">
+                <ContentLoader style={{ height: "24px", width: "100%" }}>
+                  <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="100%" />
+                </ContentLoader>
+              </div>
+              <div className="progress">
+                <ContentLoader style={{ height: "24px", width: "100%" }}>
+                  <rect x="0" y="0" rx="2%" ry="20%" width="100%" height="100%" />
+                </ContentLoader>
+              </div>
             </div>
           </div>
         </div>

@@ -15,21 +15,21 @@ function Content() {
           <meta name="og:description" content="Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years. Also a Gamer who wants to learn games development for fun." />
           <meta name="twitter:description" content="Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years. Also a Gamer who wants to learn games development for fun." />
         </Helmet>
-      <div className="container gutter-top">
-        <div className="row sticky-parent">
-          {/*Sidebar*/}
-          <aside className="col-12 col-md-12 col-xl-3">
-            <ContactBox />
-          </aside>
-          {/*Content*/}
-          <div className="col-12 col-md-12 col-xl-9">
-            <div className="box pb-0">
-                <Menu />
-                <RouteContainer />
+        <div className="container gutter-top">
+          <div className="row sticky-parent">
+            {/*Sidebar*/}
+            <aside className="col-12 col-md-12 col-xl-3">
+              <ContactBox />
+            </aside>
+            {/*Content*/}
+            <div className="col-12 col-md-12 col-xl-9">
+              <div className="box pb-0">
+                  <Menu />
+                  <RouteContainer />
+              </div>
+              <Footer />
             </div>
-            <Footer />
           </div>
-        </div>
         </div>
       </Router>
     </React.Fragment>
