@@ -18,6 +18,12 @@ app.use(compression());
 app.use(express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" }));
 
 const serverRenderer = (req, res, next) => {
+    var ip = req.headers["x-forwarded-for"] ||
+        req.connection.remoteAddress ||
+        req.socket.remoteAddress ||
+        (req.connection.socket ? req.connection.socket.remoteAddress : null);
+    var logString = `IPAdd ${ip} || Request ${req.method} ${req.url} || body ${JSON.stringify(req.body)} || params ${JSON.stringify(req.params)} || headers ${JSON.stringify(req.headers)}`;
+    console.log(logString);
     fs.readFile(path.resolve("./build/index.html"), "utf8", async (err, data) => {
         if (err) {
             console.error(err);
@@ -27,32 +33,32 @@ const serverRenderer = (req, res, next) => {
         const fullUrl = process.env.PUBLIC_URL + req.originalUrl;
 
         data = data.replace(
-            new RegExp(process.env.PUBLIC_URL +"//", "gi"), fullUrl
-        )
+            new RegExp(process.env.PUBLIC_URL + "//", "gi"), fullUrl
+        );
         switch (pathname) {
             case "":
                 data = data.replace(
                     new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "Tayyab Aziz - A Full Stack Web Developer and Gamer"
-                )
+                );
                 data = data.replace(
                     new RegExp("Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun.", "gi"), "Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun."
-                )
+                );
                 break;
             case "resume":
                 data = data.replace(
                     new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "RESUME - Tayyab Aziz"
-                )
+                );
                 data = data.replace(
                     new RegExp("Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun.", "gi"), "Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun."
-                )
+                );
                 break;
             case "portfolio":
                 data = data.replace(
                     new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "PORTFOLIO - Tayyab Aziz"
-                )
+                );
                 data = data.replace(
                     new RegExp("Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun.", "gi"), "Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun."
-                )
+                );
                 break;
             default:
                 if (req.params.projectName) {
@@ -61,16 +67,16 @@ const serverRenderer = (req, res, next) => {
                         const responseData = await axios(url);
                         data = data.replace(
                             new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), responseData.data.title + " - Tayyab Aziz"
-                        )
+                        );
                         data = data.replace(
                             new RegExp("Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years.Also a Gamer who wants to learn games development for fun.", "gi"), responseData.data.metaDesc
-                        )
+                        );
                     }
                     catch (err) {
                         console.log(err.message);
                         data = data.replace(
                             new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "404 - Tayyab Aziz"
-                        )
+                        );
                         return res.status(404).send(data);
                     }
                 }
@@ -78,7 +84,7 @@ const serverRenderer = (req, res, next) => {
         }
         return res.send(data);
     });
-}
+};
 
 app.get("/", serverRenderer);
 app.get("/resume", serverRenderer);
