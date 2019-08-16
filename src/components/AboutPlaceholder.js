@@ -1,6 +1,31 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
-function AboutPlaceholder() {
+function AboutPlaceholder () {
+  const items = [];
+  for (let index = 0; index < 6; index++) {
+    items.push(<div className="col-12 col-sm-6 col-md-4" >
+      <div className="case-item box box__second">
+        <ContentLoader style={{ height: "40px", width: "40px" }}>
+          {/* Pure SVG */}
+          <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
+        </ContentLoader>
+        <div>
+          <ContentLoader style={{ width: "100%", height: "20px", marginTop: "-7px" }} >
+            {/* Pure SVG */}
+            <rect x="40" y="0" rx="1" ry="1" width="100%" height="100%" />
+          </ContentLoader>
+          <ContentLoader style={{ width: "100%", height: "90px" }} viewBox="0 0 400 90">
+            {/* Pure SVG */}
+            <rect x="40" y="10" rx="1" ry="1" width="100%" height="15px" />
+            <rect x="40" y="30" rx="1" ry="1" width="100%" height="15px" />
+            <rect x="40" y="50" rx="1" ry="1" width="100%" height="15px" />
+            <rect x="40" y="70" rx="1" ry="1" width="50%" height="15px" />
+          </ContentLoader>
+        </div>
+      </div>
+    </div>);
+  }
+
   return (
     <React.Fragment>
       <div className="pb-2" id="hash">
@@ -34,69 +59,7 @@ function AboutPlaceholder() {
           </ContentLoader>
         </h2>
         <div className="row">
-          <div className="col-12 col-sm-6 col-md-4" >
-            <div className="case-item box box__second">
-              <ContentLoader style={{ height: "40px", width: "40px" }}>
-                {/* Pure SVG */}
-                <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
-              </ContentLoader>
-              <div>
-                <ContentLoader style={{width: "100%", height: "20px", marginTop: "-7px"}} >
-                  {/* Pure SVG */}
-                  <rect x="40" y="0" rx="1" ry="1" width="100%" height="100%" />
-                </ContentLoader>
-                <ContentLoader style={{ width: "100%", height: "90px" }} viewBox="0 0 400 90">
-                  {/* Pure SVG */}
-                  <rect x="40" y="10" rx="1" ry="1" width="100%" height="15px" />
-                  <rect x="40" y="30" rx="1" ry="1" width="100%" height="15px" />
-                  <rect x="40" y="50" rx="1" ry="1" width="100%" height="15px" />
-                  <rect x="40" y="70" rx="1" ry="1" width="50%" height="15px" />
-                </ContentLoader>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-sm-6 col-md-4" >
-            <div className="case-item box box__second">
-              <ContentLoader style={{ height: "40px", width: "40px" }}>
-                {/* Pure SVG */}
-                <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
-              </ContentLoader>
-              <div>
-                <ContentLoader style={{ width: "100%", height: "20px", marginTop: "-7px" }} >
-                  {/* Pure SVG */}
-                  <rect x="40" y="0" rx="1" ry="1" width="100%" height="100%" />
-                </ContentLoader>
-                <ContentLoader style={{ width: "100%", height: "90px" }} viewBox="0 0 400 90">
-                  {/* Pure SVG */}
-                  <rect x="40" y="10" rx="1" ry="1" width="100%" height="15px" />
-                  <rect x="40" y="30" rx="1" ry="1" width="100%" height="15px" />
-                  <rect x="40" y="50" rx="1" ry="1" width="100%" height="15px" />
-                  <rect x="40" y="70" rx="1" ry="1" width="50%" height="15px" />
-                </ContentLoader>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-sm-6 col-md-4" >
-            <div className="case-item box box__second">
-              <ContentLoader style={{ height: "40px", width: "40px" }}>
-                {/* Pure SVG */}
-                <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
-              </ContentLoader>
-              <div>
-                <ContentLoader style={{ width: "100%", height: "20px", marginTop: "-7px" }} >
-                  {/* Pure SVG */}
-                  <rect x="40" y="0" rx="1" ry="1" width="100%" height="100%" />
-                </ContentLoader>
-                <ContentLoader style={{ width: "100%", height: "90px" }} viewBox="0 0 400 90">
-                  {/* Pure SVG */}
-                  <rect x="40" y="10" rx="1" ry="1" width="100%" height="15px" />
-                  <rect x="40" y="30" rx="1" ry="1" width="100%" height="15px" />
-                  <rect x="40" y="50" rx="1" ry="1" width="100%" height="15px" />
-                  <rect x="40" y="70" rx="1" ry="1" width="50%" height="15px" />
-                </ContentLoader>
-              </div>
-            </div>
-          </div>
+          {items}
         </div>
       </div>
     </React.Fragment>
