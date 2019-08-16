@@ -32,7 +32,7 @@ function PortfolioItemDetailData(data) {
         <img src={iconBack} alt="" />
       </div>
       <div className="pb-2 text-center" id="hash">
-        <h1 className="title title--h1 ">{projectData.title}
+        <h1 className="title title--h1 title__separate">{projectData.title}
           <span className="title title--h5"> ({projectData.category}) </span>
         </h1>
       </div>

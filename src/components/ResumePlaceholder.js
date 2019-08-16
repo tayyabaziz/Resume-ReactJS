@@ -8,7 +8,7 @@ function ResumePlaceholder() {
         <h1 className="title title--h1 title__separate">
           <ContentLoader style={{ height: "36px", width: "100%" }}>
             {/* Pure SVG */}
-            <rect x="0" y="0" rx="1" ry="1" width="40%" height="100%" />
+            <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
           </ContentLoader>
         </h1>
       </div>
@@ -107,17 +107,17 @@ function ResumePlaceholder() {
           <div className="col-12 col-lg-6">
             <div className="box box__second">
               <div className="progress">
-                <ContentLoader style={{ height: "24px", width: "100%", "border-radius":"1rem" }}>
+                <ContentLoader style={{ height: "24px", width: "100%", "borderRadius":"1rem" }}>
                   <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
                 </ContentLoader>
               </div>
               <div className="progress">
-                <ContentLoader style={{ height: "24px", width: "100%", "border-radius":"1rem" }}>
+                <ContentLoader style={{ height: "24px", width: "100%", "borderRadius":"1rem" }}>
                   <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
                 </ContentLoader>
               </div>
               <div className="progress">
-                <ContentLoader style={{ height: "24px", width: "100%", "border-radius":"1rem" }}>
+                <ContentLoader style={{ height: "24px", width: "100%", "borderRadius":"1rem" }}>
                   <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
                 </ContentLoader>
               </div>
@@ -126,17 +126,17 @@ function ResumePlaceholder() {
           <div className="col-12 col-lg-6 mt-2  mt-lg-0">
             <div className="box box__second">
               <div className="progress">
-                <ContentLoader style={{ height: "24px", width: "100%", "border-radius":"1rem" }}>
+                <ContentLoader style={{ height: "24px", width: "100%", "borderRadius":"1rem" }}>
                   <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
                 </ContentLoader>
               </div>
               <div className="progress">
-                <ContentLoader style={{ height: "24px", width: "100%", "border-radius":"1rem" }}>
+                <ContentLoader style={{ height: "24px", width: "100%", "borderRadius":"1rem" }}>
                   <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
                 </ContentLoader>
               </div>
               <div className="progress">
-                <ContentLoader style={{ height: "24px", width: "100%", "border-radius":"1rem" }}>
+                <ContentLoader style={{ height: "24px", width: "100%", "borderRadius":"1rem" }}>
                   <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
                 </ContentLoader>
               </div>

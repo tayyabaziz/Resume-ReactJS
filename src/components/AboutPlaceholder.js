@@ -3,7 +3,7 @@ import ContentLoader from "react-content-loader";
 function AboutPlaceholder () {
   const items = [];
   for (let index = 0; index < 6; index++) {
-    items.push(<div className="col-12 col-sm-6 col-md-4" >
+    items.push(<div className="col-12 col-sm-6 col-md-4" key={index}>
       <div className="case-item box box__second">
         <ContentLoader style={{ height: "40px", width: "40px" }}>
           {/* Pure SVG */}
@@ -32,7 +32,7 @@ function AboutPlaceholder () {
         <h1 className="title title--h1 title__separate">
           <ContentLoader style={{ height: "36px", width: "100%" }}>
             {/* Pure SVG */}
-            <rect x="0" y="0" rx="1" ry="1" width="40%" height="100%" />
+            <rect x="0" y="0" rx="1" ry="1" width="100%" height="100%" />
           </ContentLoader>
         </h1>
         <ContentLoader style={{ height: "110px", width: "100%" }} viewBox="0 0 400 62">
