@@ -532,7 +532,9 @@ h1, h2, h3, h4, h5, h6 {
 .title__separate {
   margin: auto auto 2.3rem auto;
   position: relative;
-  width: max-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  width: -webkit-fit-content;
 }
 .title__separate::before {
   content: '';
@@ -543,6 +545,8 @@ h1, h2, h3, h4, h5, h6 {
   bottom: -1.1rem;
   left: 0;
   width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
   z-index: 1;
 }
 @media only screen and (max-width: 580px) {
