@@ -18,12 +18,6 @@ app.use(compression());
 app.use(express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" }));
 
 const serverRenderer = (req, res, next) => {
-    var ip = req.headers["x-forwarded-for"] ||
-        req.connection.remoteAddress ||
-        req.socket.remoteAddress ||
-        (req.connection.socket ? req.connection.socket.remoteAddress : null);
-    var logString = `IPAdd ${ip} || Request ${req.method} ${req.url} || body ${JSON.stringify(req.body)} || params ${JSON.stringify(req.params)} || headers ${JSON.stringify(req.headers)}`;
-    console.log(logString);
     fs.readFile(path.resolve("./build/index.html"), "utf8", async (err, data) => {
         if (err) {
             console.error(err);
