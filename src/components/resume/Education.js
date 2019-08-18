@@ -1,6 +1,6 @@
 import React from "react";
 import ExpEduItem from "./ExpEduItem";
-import iconEducation from "../assets/icons/icon-education.svg";
+import iconEducation from "../../assets/icons/icon-education.svg";
 
 function Education() {
     return (

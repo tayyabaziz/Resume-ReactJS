@@ -1,6 +1,6 @@
 import React from "react";
 import ExpEduItem from "./ExpEduItem";
-import iconAchievement from "../assets/icons/icon-achievement.svg";
+import iconAchievement from "../../assets/icons/icon-achievement.svg";
 
 function Achievement() {
     return (

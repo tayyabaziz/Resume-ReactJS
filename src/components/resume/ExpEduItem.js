@@ -1,10 +1,6 @@
 import React from "react";
 
 function ExpEduItem(data) {
-    let desc = "";
-    if (data.description) {
-        desc = <div className="timeline__description col">{data.description}</div>;
-    }
     return (
         <article className="timeline__item">
             <div className="row">
@@ -14,7 +10,7 @@ function ExpEduItem(data) {
                 <div className="col-4">
                     <span className="timeline__period float-right">{data.period}</span>
                 </div>
-                {desc}
+                {data.description ? <div className="timeline__description col">{data.description}</div>:""}
             </div>
         </article>
     );

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import mediumZoom from "medium-zoom";
 import ReactHtmlParser from "react-html-parser";
 import { Helmet } from "react-helmet";
-import iconBack from "../assets/icons/icon-back.svg";
+import PageTitle from "../PageTitle";
+import PortfolioItemBackBtn from "./PortfolioItemBackBtn";
 
 function PortfolioItemDetailData(data) {
   const [zoomEnabled, setZoomEnabled] = useState(false);
@@ -28,13 +29,9 @@ function PortfolioItemDetailData(data) {
         <meta name="twitter:description" content={projectData.metaDesc} />
       </Helmet>
       {/*PortfolioItemDetail*/}
-      <div onClick={() => data.history.push("/portfolio/")} className="circle-back">
-        <img src={iconBack} alt="" />
-      </div>
+      <PortfolioItemBackBtn history={data.history} />
       <div className="pb-2 text-center" id="hash">
-        <h1 className="title title--h1 title__separate">{projectData.title}
-          <span className="title title--h5"> ({projectData.category}) </span>
-        </h1>
+        <PageTitle title={projectData.title} category={projectData.category}/>
       </div>
       <div className="pb-5">
         <div className="row">

@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import ResumePlaceholder from "../components/ResumePlaceholder";
-import ExpEduAll from "../components/ExpEduAll";
-import Skills from "../components/Skills";
+import ResumeBox from "../components/resume/ResumeBox";
+import ResumePlaceholder from "../components/resume/ResumePlaceholder";
 
 function Resume() {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
+    let isSubscribed = true;
     setTimeout(() => {
-      if (isLoading) {
+      if (isSubscribed && isLoading) {
         setLoading(false);
       }
     }, 1000);
-  });
+    return () => isSubscribed = false;
+  }, [isLoading]);
 
   return (
     <React.Fragment>
@@ -22,14 +23,8 @@ function Resume() {
         <meta property="og:title" content="RESUME - Tayyab Aziz" />
         <meta property="twitter:title" content="RESUME - Tayyab Aziz" />
       </Helmet>
-      {!isLoading ? <React.Fragment>
-        {/*Resume*/}
-        <div className="pb-2" id="hash">
-          <h1 className="title title--h1 title__separate">Resume</h1>
-        </div>
-        <ExpEduAll />
-        <Skills />
-      </React.Fragment> : <ResumePlaceholder />}
+
+      {!isLoading ? <ResumeBox/> : <ResumePlaceholder />}
     </React.Fragment>
   );
 }

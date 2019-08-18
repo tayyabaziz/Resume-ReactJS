@@ -1,37 +1,35 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
-import PortfolioGrid from "../components/PortfolioGrid";
-import PortfolioPlaceholder from "../components/PortfolioPlaceholder";
+import PortfolioPlaceholder from "../components/portfolio/PortfolioPlaceholder";
+import PortfolioGrid from "../components/portfolio/PortfolioGrid";
 
-function Portfolio() {
+function Portfolio(data) {
   const [isLoading, setLoading] = useState(true);
   const [projectData, setProject] = useState(false);
+  const [fetchCallStarted, setFetchCallStarted] = useState(false);
   useEffect(() => {
     async function fetchData() {
+      setFetchCallStarted(true);
       try {
         const url = window.location.origin + "/api/project/";
         const responseData = await axios(url);
-        setProject(responseData.data);
-        setTimeout(() => {
-          if (isLoading) {
-            setLoading(false);
-          }
-        }, 1000);
+        setProject(await responseData.data);
       } catch (error) {
         console.log(error.message);
-        setProject(false);
-        setTimeout(() => {
-          if (isLoading) {
-            setLoading(false);
-          }
-        }, 1000);
+        setProject(await false);
       }
     }
-    if (!projectData) {
+
+    if (!projectData && !fetchCallStarted) {
       fetchData();
+      setTimeout(() => {
+        if (isLoading) {
+          setLoading(false);
+        }
+      }, 1000);
     }
-  });
+  }, [data, fetchCallStarted, isLoading, projectData]);
 
   let ReactHTML = <React.Fragment>
     <div className="text-center py-5">
@@ -57,9 +55,7 @@ function Portfolio() {
   }
 
   return (
-    <React.Fragment>
-      {!isLoading ? ReactHTML : <PortfolioPlaceholder />}
-    </React.Fragment>
+      !isLoading ? ReactHTML : <PortfolioPlaceholder />
   );
 }
 export default Portfolio;

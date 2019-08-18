@@ -8,9 +8,7 @@ function App() {
   return (
     <React.Fragment>
       <Preloader />
-      <main className="main">
-        <Content />
-      </main>
+      <Content />
       <BacktoTop />
       <SVG />
     </React.Fragment>

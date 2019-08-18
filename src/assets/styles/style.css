@@ -532,9 +532,9 @@ h1, h2, h3, h4, h5, h6 {
 .title__separate {
   margin: auto auto 2.3rem auto;
   position: relative;
-  width: -moz-fit-content;
   width: fit-content;
   width: -webkit-fit-content;
+  width: -moz-fit-content;
 }
 .title__separate::before {
   content: '';
@@ -544,9 +544,9 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   bottom: -1.1rem;
   left: 0;
-  width: -moz-available;
-  width: -webkit-fill-available;
   width: fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
   z-index: 1;
 }
 @media only screen and (max-width: 580px) {
@@ -947,6 +947,8 @@ iframe {
 }
 .nav__item a {
   color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  margin: -20px;
 }
 .nav__item a:hover {
   color: white;
@@ -2497,7 +2499,7 @@ iframe {
   z-index: 1104;
 }
 .medium-zoom-image--opened {
-  border-radius: 1px;
+  border-radius: .6559rem;
   height: 100%;
 }
 

@@ -1,14 +1,14 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { BrowserRouter as Router } from "react-router-dom";
-import ContactBox from "../components/ContactBox";
+import ContactBox from "../components/contactbox/ContactBox";
 import Footer from "../components/Footer";
 import Menu from "../components/Menu";
 import RouteContainer from "../components/RouteContainer";
 
 function Content() {
   return (
-    <React.Fragment>
+    <main className="main">
       <Router>
         <Helmet>
           <meta name="description" content="Full Stack Web Developer from Karachi, Pakistan having an experience of more than 5 years. Also a Gamer who wants to learn games development for fun." />
@@ -32,7 +32,7 @@ function Content() {
           </div>
         </div>
       </Router>
-    </React.Fragment>
+    </main>
   );
 }
 

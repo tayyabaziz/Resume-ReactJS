@@ -1,6 +1,6 @@
 import React from "react";
 import ExpEduItem from "./ExpEduItem";
-import iconExperience from "../assets/icons/icon-experience.svg";
+import iconExperience from "../../assets/icons/icon-experience.svg";
 
 function Experience() {
     return (

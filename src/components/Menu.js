@@ -10,5 +10,4 @@ function Menu() {
         </React.Fragment >
     );
 }
-
 export default Menu;
