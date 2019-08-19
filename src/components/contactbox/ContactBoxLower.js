@@ -4,7 +4,7 @@ import ContactBoxResume from "./ContactBoxResume";
 
 function ContactBoxLower() {
   return (
-    <div className="sidebar__info box-inner box-inner--rounded">
+    <div className="sidebar__info box-inner box-inner--rounded pb-0">
       <ContactBoxCB/>
       <ContactBoxResume />
     </div>

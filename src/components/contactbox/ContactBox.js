@@ -16,7 +16,7 @@ function ContactBox() {
   // });
 
   return (
-    <div className="sidebar box pb-0 sticky-column" style={{ zIndex: 1 }}>
+    <div className="sidebar box sticky-column" style={{ zIndex: 1 }}>
       <ContactBoxAvatar />
       <ContactBoxUpper />
       <ContactBoxLower />
