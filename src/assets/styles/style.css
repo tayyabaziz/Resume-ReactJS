@@ -2559,4 +2559,14 @@ iframe {
   }
 }
 
+.btnContactInfo {
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  border-radius: 0.937rem 0 0.937rem;
+  z-index: 0;
+  width: 50px;
+  height: 50px;
+}
+
 /*# sourceMappingURL=style.css.map */

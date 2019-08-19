@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 import ContactBoxAvatar from "./ContactBoxAvatar";
 import ContactBoxUpper from "./ContactBoxUpper";
 import ContactBoxLower from "./ContactBoxLower";
@@ -19,6 +21,9 @@ function ContactBox() {
     <div className="sidebar box sticky-column" style={{ zIndex: 1 }}>
       <ContactBoxAvatar />
       <ContactBoxUpper />
+      <button className="btn btn-info btnContactInfo d-block d-xl-none">
+        <FontAwesomeIcon icon={faAngleDoubleDown} />
+      </button>
       <ContactBoxLower />
     </div>
   );
