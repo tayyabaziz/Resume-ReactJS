@@ -17,7 +17,7 @@ function Portfolio(data) {
         setProject(await responseData.data);
       } catch (error) {
         console.log(error.message);
-        setProject(await false);
+        setProject(false);
       }
     }
 
