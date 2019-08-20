@@ -2569,6 +2569,14 @@ iframe {
   height: 50px;
 }
 
+.contactInfo {
+  display: none;
+}
+
+.contactInfo.open {
+  display: block;
+}
+
 .collapse-css-transition {
   overflow: unset !important;
 }

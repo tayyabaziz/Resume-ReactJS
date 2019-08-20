@@ -12,7 +12,7 @@ function ContactBox() {
     <div className={"sidebar box sticky-column " + [btnToggle ? "pb-0" :""]} style={{ zIndex: 1 }}>
       <ContactBoxAvatar />
       <ContactBoxUpper />
-      <button onClick={() => setBtnToggle(!btnToggle)} className="btn btn-info btnContactInfo d-block d-xl-none">
+      <button onClick={() => setBtnToggle(!btnToggle)} className="btn btn--blue-gradient btnContactInfo d-block d-xl-none">
         <FontAwesomeIcon icon={!btnToggle ? faAngleDoubleDown : faAngleDoubleUp} />
       </button>
       <ContactBoxLower btnToggle={btnToggle} />
