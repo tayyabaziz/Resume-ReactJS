@@ -2564,9 +2564,13 @@ iframe {
   bottom: 0;
   position: absolute;
   border-radius: 0.937rem 0 0.937rem;
-  z-index: 0;
+  z-index: 1;
   width: 50px;
   height: 50px;
+}
+
+.collapse-css-transition {
+  overflow: unset !important;
 }
 
 /*# sourceMappingURL=style.css.map */
