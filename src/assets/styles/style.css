@@ -2563,10 +2563,16 @@ iframe {
   right: 0;
   bottom: 0;
   position: absolute;
-  border-radius: 0.937rem 0 0.937rem;
+  border-radius: 0.937rem 0 0.937rem 0;
   z-index: 1;
-  width: 50px;
-  height: 50px;
+}
+
+.btnResume {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  border-radius: 0 0.937rem 0 0.937rem;
+  z-index: 1;
 }
 
 .contactInfo {
@@ -2579,6 +2585,11 @@ iframe {
 
 .collapse-css-transition {
   overflow: unset !important;
+}
+
+.collapse-css-transition-keep {
+  margin: auto -30px;
+  padding: 0 30px;
 }
 
 /*# sourceMappingURL=style.css.map */
