@@ -2,20 +2,18 @@ import React from "react";
 import ExpEduItem from "./ExpEduItem";
 import iconEducation from "../../assets/icons/icon-education.svg";
 
-function Education() {
+function Education(data) {
     return (
         <div className="col-12 mt-2">
             <h2 className="title title--h3"><img className="title-icon" src={iconEducation} alt="" /> EDUCATION<hr /></h2>
             <div className="col-12">
                 <div className="timeline">
-                    <ExpEduItem title="Master of Science Computer Science | Bahria University, Karachi, Pakistan" period="2016 - 2018" />
-                    <ExpEduItem title="Bachelors of Science Computer Science | Iqra University, Karachi, Pakistan" period="2009 - 2013" />
-                    <ExpEduItem title="Intermediate in Pre Engineering | Government Degree Boys College, Gulzar-e-Hijri, Karachi (Pakistan)" period="2006 - 2008" />
-                    <ExpEduItem title="Matriculation in Computer Sciences | Usmania Academy, Karachi (Pakistan)" period="2004 - 2006" />
+                    {data.educations && data.educations.sort((a, b) => a.priority > b.priority).map((element, key) => {
+                        return (<ExpEduItem key={key} title={[element.title, ", ", element.from, ", ", element.location]} period={element.period} />);
+                    })}
                 </div>
             </div>
         </div>
     );
 }
-
 export default Education;

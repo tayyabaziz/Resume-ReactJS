@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDoubleDown, faAngleDoubleUp } from "@fortawesome/free-solid-svg-icons";
 import ContactBoxAvatar from "./ContactBoxAvatar";
@@ -27,9 +28,11 @@ function ContactBox() {
     <div className={"sidebar box sticky-column " + [isSmall ? [btnToggle ? "pb-0" : ""] : "pb-0"]} style={{ zIndex: 1 }}>
       <ContactBoxAvatar />
       <ContactBoxUpper />
-      <button onClick={() => setBtnToggle(!btnToggle)} className="btn btn--blue-gradient btnContactInfo d-block d-xl-none" title={!btnToggle ? "Show More Information" : "Hide More Information"}>
-        <FontAwesomeIcon icon={!btnToggle ? faAngleDoubleDown : faAngleDoubleUp} />
-      </button>
+      <OverlayTrigger placement="top" overlay={<Tooltip>   {!btnToggle ? "Show More Information" : "Hide More Information"} </Tooltip>}>
+        <button onClick={() => setBtnToggle(!btnToggle)} className="btn btn--blue-gradient btnContactInfo d-block d-xl-none" >
+          <FontAwesomeIcon icon={!btnToggle ? faAngleDoubleDown : faAngleDoubleUp} />
+        </button>
+      </OverlayTrigger>
       {isSmall && !btnToggle ? <ContactBoxResume btnToggle={btnToggle} isSmall={isSmall} /> : ""}
       <ContactBoxLower btnToggle={btnToggle} isSmall={isSmall} />
     </div>

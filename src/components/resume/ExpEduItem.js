@@ -1,4 +1,5 @@
 import React from "react";
+import ReactHtmlParser from "react-html-parser";
 
 function ExpEduItem(data) {
     return (
@@ -10,7 +11,7 @@ function ExpEduItem(data) {
                 <div className="col-4">
                     <span className="timeline__period float-right">{data.period}</span>
                 </div>
-                {data.description ? <div className="timeline__description col">{data.description}</div>:""}
+                {data.description ? <div className="timeline__description col">{ReactHtmlParser(data.description)}</div>:""}
             </div>
         </article>
     );

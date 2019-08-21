@@ -26,7 +26,7 @@ function PortfolioPlaceholder() {
             </div>
           </div>
           <div className="col-12 d-sm-block d-block d-md-none">
-            <Placeholder style={{ height: "25.6px", width: "100%", borderRadius: "10rem", marginBottom: "2rem" }} />
+            <Placeholder style={{ height: "41.6px", width: "100%", borderRadius: "10rem", marginBottom: "1rem" }} />
           </div>
         </div>
 

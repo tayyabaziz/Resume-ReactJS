@@ -8,8 +8,20 @@ function Skills(data) {
         });
     }
     useEffect(() => {
-        onLoadProgress()
+        onLoadProgress();
     }, []);
+
+    const skills1 = [];
+    const skills2 = [];
+
+    data.skills.sort((a, b) => a.priority > b.priority).map((element, key) => {
+        if (key < Math.ceil(data.skills.length / 2)) {
+            return skills1.push(<Progress key={key} progress_value={element.percent} progress_text={element.title + " - " + element.experience} />);
+        }
+        else {
+            return skills2.push(<Progress key={key} progress_value={element.percent} progress_text={element.title + " - " + element.experience} />);
+        };
+    })
     return (
         <React.Fragment>
             {/* Skills*/}
@@ -20,18 +32,12 @@ function Skills(data) {
                     </div>
                     <div className="col-12 col-lg-6">
                         <div className="box box__second">
-                            <Progress progress_value="70" progress_text="PHP - 5 years experience" />
-                            <Progress progress_value="65" progress_text="Wordpress - 4 years experience" />
-                            <Progress progress_value="25" progress_text="Photoshop - 1 year experience" />
-                            <Progress progress_value="90" progress_text="HTML/CSS - 5 years experience" />
+                            {skills1}
                         </div>
                     </div>
                     <div className="col-12 col-lg-6 mt-2  mt-lg-0">
                         <div className="box box__second">
-                            <Progress progress_value="70" progress_text="JavaScript - 5 years experience" />
-                            <Progress progress_value="40" progress_text="NodeJS - less than a year experience" />
-                            <Progress progress_value="85" progress_text="jQuery/AJAX - 5 years experience" />
-                            <Progress progress_value="35" progress_text="Android - 1 year experience" />
+                            {skills2}
                         </div>
                     </div>
                 </div>

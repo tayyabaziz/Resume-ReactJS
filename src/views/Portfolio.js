@@ -3,41 +3,49 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import PortfolioPlaceholder from "../components/portfolio/PortfolioPlaceholder";
 import PortfolioGrid from "../components/portfolio/PortfolioGrid";
+import DataNotFound from "./DataNotFound";
+import PageTitle from "../components/PageTitle";
 
 function Portfolio(data) {
   const [isLoading, setLoading] = useState(true);
   const [projectData, setProject] = useState(false);
-  const [fetchCallStarted, setFetchCallStarted] = useState(false);
   useEffect(() => {
+    const source = axios.CancelToken.source();
     async function fetchData() {
-      setFetchCallStarted(true);
       try {
         const url = window.location.origin + "/api/project/";
-        const responseData = await axios(url);
-        setProject(await responseData.data);
+        const responseData = await axios(url, {
+          cancelToken: source.token
+        });
+        if (!axios.isCancel(responseData)) {
+          await setProject(responseData.data);
+          await setLoading(false);
+        }
       } catch (error) {
         console.log(error.message);
-        setProject(false);
+        if (error.message !== "Request Cancelled") {
+          await setProject(false);
+          await setLoading(false);
+        }
       }
     }
 
-    if (!projectData && !fetchCallStarted) {
+    if (!projectData) {
       fetchData();
-      setTimeout(() => {
-        if (isLoading) {
-          setLoading(false);
-        }
-      }, 1000);
     }
-  }, [data, fetchCallStarted, isLoading, projectData]);
+    return () => {
+      source.cancel("Request Cancelled")
+    };
+  }, [projectData]);
 
-  let ReactHTML = <React.Fragment>
-    <div className="text-center py-5">
-      <h1 className="title title--h1">Data Not Found</h1>
-    </div>
-  </React.Fragment>;
-  if (projectData) {
-    ReactHTML = <React.Fragment>
+  let ReactHTML = projectData ?
+    <React.Fragment>
+      <PageTitle title="Portfolio" />
+      <PortfolioGrid projectData={projectData} />
+    </React.Fragment> : <DataNotFound />;
+
+  return (
+    <React.Fragment>
       <Helmet>
         <title>PORTFOLIO - Tayyab Aziz</title>
         <link rel="canonical" href={window.location.href} />
@@ -45,17 +53,8 @@ function Portfolio(data) {
         <meta property="twitter:title" content="PORTFOLIO - Tayyab Aziz" />
       </Helmet>
       {/*Portfolio*/}
-      <div className="pb-2" id="hash">
-        <h1 className="title title--h1 title__separate">Portfolio</h1>
-      </div>
-      <div className="pb-0">
-        <PortfolioGrid projectData={projectData} />
-      </div>
-    </React.Fragment>;
-  }
-
-  return (
-      !isLoading ? ReactHTML : <PortfolioPlaceholder />
+      {!isLoading ? ReactHTML : <PortfolioPlaceholder />}
+    </React.Fragment>
   );
 }
 export default Portfolio;

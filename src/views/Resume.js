@@ -1,19 +1,43 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Helmet } from "react-helmet";
 import ResumeBox from "../components/resume/ResumeBox";
 import ResumePlaceholder from "../components/resume/ResumePlaceholder";
+import DataNotFound from "./DataNotFound";
 
 function Resume() {
   const [isLoading, setLoading] = useState(true);
+  const [resumeData, setResume] = useState(false);
   useEffect(() => {
-    let isSubscribed = true;
-    setTimeout(() => {
-      if (isSubscribed && isLoading) {
-        setLoading(false);
+    const source = axios.CancelToken.source();
+    async function fetchData() {
+      try {
+        const url = window.location.origin + "/api/detail/resume";
+        const responseData = await axios(url, {
+          cancelToken: source.token
+        });
+        if (!axios.isCancel(responseData)) {
+          await setResume(responseData.data);
+          await setLoading(false);
+        }
+      } catch (error) {
+        console.log(error.message);
+        if (error.message !== "Request Cancelled") {
+          await setResume(false);
+          await setLoading(false);
+        }
       }
-    }, 1000);
-    return () => isSubscribed = false;
-  }, [isLoading]);
+    }
+
+    if (!resumeData) {
+      fetchData();
+    }
+    return () => {
+      source.cancel("Request Cancelled")
+    };
+  }, [resumeData]);
+
+  let ReactHTML = resumeData ? <ResumeBox resumeData={resumeData} /> : <DataNotFound />;
 
   return (
     <React.Fragment>
@@ -23,8 +47,7 @@ function Resume() {
         <meta property="og:title" content="RESUME - Tayyab Aziz" />
         <meta property="twitter:title" content="RESUME - Tayyab Aziz" />
       </Helmet>
-
-      {!isLoading ? <ResumeBox/> : <ResumePlaceholder />}
+      {!isLoading ? ReactHTML : <ResumePlaceholder />}
     </React.Fragment>
   );
 }

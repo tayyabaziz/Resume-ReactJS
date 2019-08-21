@@ -6,12 +6,12 @@ import Achievement from "./Achievement";
 function ExpEduAll(data) {
     return (
         <React.Fragment>
-            {/* Experience*/ }
+            {/* Experience*/}
             <div className="pb-0">
                 <div className="row">
-                    <Education/>
-                    <Experience />
-                    <Achievement />
+                    <Education educations={data.educations} />
+                    <Experience experiences={data.experiences} />
+                    <Achievement achievements={data.achievements} />
                 </div>
             </div>
         </React.Fragment>

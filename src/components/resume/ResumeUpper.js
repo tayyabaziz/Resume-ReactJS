@@ -1,14 +1,11 @@
 import React from "react";
 import PageTitle from "../PageTitle";
 
-function ResumeBoxUpper() {
+function ResumeBoxUpper(data) {
   return (
-    <React.Fragment>
-      {/*Resume*/}
-      <div className="pb-2" id="hash">
-        <PageTitle title="Resume"/>
-      </div>
-    </React.Fragment>
+    <div className="pb-2" id="hash">
+      <PageTitle title={data.title} />
+    </div>
   );
 }
 export default ResumeBoxUpper;
