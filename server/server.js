@@ -84,11 +84,11 @@ app.get("/", serverRenderer);
 app.get("/resume", serverRenderer);
 app.get("/portfolio", serverRenderer);
 app.get("/portfolio/:projectName", serverRenderer);
-var routes = require("./projects.route");
 app.get("/api", (req, res) => {
     res.json({ status: 200, message: "Service is OK." });
 });
-app.use("/api/project", routes);
+app.use("/api/project", require("./projects.route"));
+app.use("/api/detail", require("./details.route"));
 app.all("/api/*", (req, res) => {
     res.status(404).json("Page not Found.");
 });
