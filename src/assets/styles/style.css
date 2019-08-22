@@ -2559,6 +2559,10 @@ iframe {
   }
 }
 
+.portfolio-item-image {
+  border-radius: 0.6559rem;
+}
+
 .btnContactInfo {
   right: 0;
   bottom: 0;
