@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import mediumZoom from "medium-zoom";
 import Isotope from "isotope-layout";
-import imagesLoaded from "imagesloaded";
+import ImagesLoaded from "imagesloaded";
 import PortfolioGridItem from "./PortfolioGridItem";
 import PortfolioGridFilter from "./PortfolioGridFilter";
 
@@ -36,7 +36,7 @@ function PortfolioGrid(data) {
             setGrid($portfolioMasonry);
         }
         if (grid) {
-            var imageLoad = new imagesLoaded(document.querySelector(".js-masonry"));
+            var imageLoad = new ImagesLoaded(document.querySelector(".js-masonry"));
             imageLoad.on("done", () => {
                 grid.arrange();
             });

@@ -8,10 +8,10 @@ function PortfolioGridFilter(data) {
     function onFilterChange(e) {
         e.preventDefault();
         e.persist();
-        document.querySelectorAll(".filter__item").forEach(element => {
+        document.querySelectorAll(".filter__item").forEach((element) => {
             element.classList.remove("active");
         });
-        document.querySelectorAll(".filter__link").forEach(element => {
+        document.querySelectorAll(".filter__link").forEach((element) => {
             element.classList.remove("active");
         });
         if (e.target.className === "filter__item") {
@@ -30,7 +30,7 @@ function PortfolioGridFilter(data) {
         });
         return true;
     }
-    var categories = Array.from(new Set(data.categories))
+    var categories = Array.from(new Set(data.categories));
     return (
         <React.Fragment>
             {/*Filter*/}

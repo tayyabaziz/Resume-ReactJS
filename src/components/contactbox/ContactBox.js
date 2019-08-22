@@ -33,7 +33,7 @@ function ContactBox() {
           <FontAwesomeIcon icon={!btnToggle ? faAngleDoubleDown : faAngleDoubleUp} />
         </button>
       </OverlayTrigger>
-      {isSmall && !btnToggle ? <ContactBoxResume btnToggle={btnToggle} isSmall={isSmall} /> : ""}
+      {(isSmall && !btnToggle) ? <ContactBoxResume btnToggle={btnToggle} isSmall={isSmall} /> : ""}
       <ContactBoxLower btnToggle={btnToggle} isSmall={isSmall} />
     </div>
   );

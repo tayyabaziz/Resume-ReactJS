@@ -11,7 +11,7 @@ function PortfolioItemDetail(data) {
     async function fetchData(projectName) {
       const source = axios.CancelToken.source();
       try {
-        const url = window.location.origin + "/api/project/" + projectName;
+        const url = "https://tayyabaziz.com/api/project/" + projectName;
         const responseData = await axios(url, {
           cancelToken: source.token
         });

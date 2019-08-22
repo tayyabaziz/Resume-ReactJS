@@ -25,7 +25,7 @@ function ResumePlaceholderUpper() {
             </div>
           </div>
         </article>
-      )
+      );
     }
     items.push(
       <div className="col-12 mt-2" key={index}>
@@ -41,8 +41,9 @@ function ResumePlaceholderUpper() {
             {items2}
           </div>
         </div>
-      </div>)
-  }
+      </div>
+    );
+  };
 
   return (
     <React.Fragment>

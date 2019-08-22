@@ -20,8 +20,8 @@ function Skills(data) {
         }
         else {
             return skills2.push(<Progress key={key} progress_value={element.percent} progress_text={element.title + " - " + element.experience} />);
-        };
-    })
+        }
+    });
     return (
         <React.Fragment>
             {/* Skills*/}

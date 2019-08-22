@@ -13,7 +13,7 @@ function Portfolio(data) {
     const source = axios.CancelToken.source();
     async function fetchData() {
       try {
-        const url = window.location.origin + "/api/project/";
+        const url = "https://tayyabaziz.com/api/project/";
         const responseData = await axios(url, {
           cancelToken: source.token
         });
@@ -34,7 +34,7 @@ function Portfolio(data) {
       fetchData();
     }
     return () => {
-      source.cancel("Request Cancelled")
+      source.cancel("Request Cancelled");
     };
   }, [projectData]);
 

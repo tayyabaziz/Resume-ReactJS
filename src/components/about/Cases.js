@@ -1,5 +1,5 @@
 import React from "react";
-import CaseItem from "./CaseItem"
+import CaseItem from "./CaseItem";
 import iconDev from "../../assets/icons/icon-dev.svg";
 
 function Cases(data) {

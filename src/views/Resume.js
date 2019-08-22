@@ -12,7 +12,7 @@ function Resume() {
     const source = axios.CancelToken.source();
     async function fetchData() {
       try {
-        const url = window.location.origin + "/api/detail/resume";
+        const url = "https://tayyabaziz.com/api/detail/resume";
         const responseData = await axios(url, {
           cancelToken: source.token
         });
@@ -33,7 +33,7 @@ function Resume() {
       fetchData();
     }
     return () => {
-      source.cancel("Request Cancelled")
+      source.cancel("Request Cancelled");
     };
   }, [resumeData]);
 
