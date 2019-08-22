@@ -12,7 +12,7 @@ function About() {
     const source = axios.CancelToken.source();
     async function fetchData() {
       try {
-        const url = "https://tayyabaziz.com/api/detail/about";
+        const url = window.location.origin + "/api/detail/about";
         const responseData = await axios(url, {
           cancelToken: source.token
         });
