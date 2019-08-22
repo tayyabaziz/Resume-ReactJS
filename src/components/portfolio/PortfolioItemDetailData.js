@@ -7,7 +7,7 @@ function PortfolioItemDetailData(data) {
 
   return (
     <React.Fragment>
-      <PortfolioItemUpper projectData={projectData} />
+      <PortfolioItemUpper projectData={projectData} history={data.history} />
       <PortfolioItemLower projectData={projectData} />
     </React.Fragment>
   );
