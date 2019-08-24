@@ -32,6 +32,13 @@ const errorRenderer = (req, res, next) => {
 app.use("/sitemap.html", errorRenderer);
 app.use(express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" }));
 
+app.use((req, res, next) => {
+    res.set("Content-Type", "text/html");
+    res.set("X-Frame-Options", "DENY");
+    res.set("X-XSS-Protection", "1; mode=block");
+    next();
+});
+
 const serverRenderer = (req, res, next) => {
     fs.readFile(path.resolve("./build/index.html"), "utf8", async (err, data) => {
         if (err) {
