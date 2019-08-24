@@ -1,8 +1,11 @@
 import React from "react";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 
-function SocialLink (data) {
+function SocialLink(data) {
   return (
-    <a target="_blank" rel="noopener noreferrer" className="social__link" href={data.social_link}><i className={data.social_icon}></i></a>
+    <OverlayTrigger placement="top" overlay={<Tooltip>  {data.social_name}</Tooltip>}>
+      <a target="_blank" rel="noopener noreferrer" className="social__link" href={data.social_link}><i className={data.social_icon}></i></a>
+    </OverlayTrigger>
   );
 }
 
