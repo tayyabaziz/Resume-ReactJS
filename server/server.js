@@ -29,15 +29,14 @@ const errorRenderer = (req, res, next) => {
     });
 };
 
-app.use("/sitemap.html", errorRenderer);
-app.use(express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" }));
-
 app.use((req, res, next) => {
-    res.set("Content-Type", "text/html");
-    res.set("X-Frame-Options", "DENY");
+    res.set("X-Frame-Options", "SAMEORIGIN");
     res.set("X-XSS-Protection", "1; mode=block");
     next();
 });
+
+app.use("/sitemap.html", errorRenderer);
+app.use(express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" }));
 
 const serverRenderer = (req, res, next) => {
     fs.readFile(path.resolve("./build/index.html"), "utf8", async (err, data) => {
@@ -102,6 +101,10 @@ const serverRenderer = (req, res, next) => {
     });
 };
 
+app.all("*", (req, res, next) => {
+    res.header('Cache-Control', 'max-age=3600000');
+    next();
+});
 app.get("/", serverRenderer);
 app.get("/resume", serverRenderer);
 app.get("/portfolio", serverRenderer);
@@ -113,6 +116,11 @@ app.get("/sitemap(/?)", (req, res, next) => {
         );
         return res.send(data);
     });
+});
+
+app.all("/api/*", (req, res, next) => {
+    res.header('Cache-Control', 'max-age=0');
+    next();
 });
 
 app.get("/api", (req, res) => {
