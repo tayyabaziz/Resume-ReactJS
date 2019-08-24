@@ -15,6 +15,21 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(cors());
 app.use(compression());
+
+const errorRenderer = (req, res, next) => {
+    fs.readFile(path.resolve("./build/index.html"), "utf8", (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("An error occurred");
+        }
+        data = data.replace(
+            new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "404 - Tayyab Aziz"
+        )
+        return res.status(404).send(data);
+    });
+};
+
+app.use("/sitemap.html", errorRenderer);
 app.use(express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" }));
 
 const serverRenderer = (req, res, next) => {
@@ -84,6 +99,15 @@ app.get("/", serverRenderer);
 app.get("/resume", serverRenderer);
 app.get("/portfolio", serverRenderer);
 app.get("/portfolio/:projectName", serverRenderer);
+app.get("/sitemap(/?)", (req, res, next) => {
+    fs.readFile(path.resolve("./build/sitemap.html"), "utf8", async (err, data) => {
+        data = data.replace(
+            new RegExp("%PUBLIC_URL%", "gi"), process.env.PUBLIC_URL
+        );
+        return res.send(data);
+    });
+});
+
 app.get("/api", (req, res) => {
     res.json({ status: 200, message: "Service is OK." });
 });
@@ -93,18 +117,7 @@ app.all("/api/*", (req, res) => {
     res.status(404).json("Page not Found.");
 });
 
-app.all("*", (req, res, next) => {
-    fs.readFile(path.resolve("./build/index.html"), "utf8", (err, data) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send("An error occurred");
-        }
-        data = data.replace(
-            new RegExp("Tayyab Aziz - A Full Stack Web Developer and Gamer", "gi"), "404 - Tayyab Aziz"
-        )
-        return res.status(404).send(data);
-    });
-});
+app.all("*", errorRenderer);
 
 app.listen(PORT, () => {
     console.log(`SSR running on port ${PORT}`);
