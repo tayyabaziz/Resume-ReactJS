@@ -52,7 +52,10 @@ function Sidebar() {
                 stickyColumn.classList.add("is_stuck");
             }
             else {
-                stickyColumn.classList.remove("is_stuck")
+                if (stickyColumn !== null) {
+                    stickyColumn.classList.remove("is_stuck");
+                }
+
             }
         }
 

@@ -5,7 +5,7 @@ function CircleMenu(data) {
     useEffect(() => {
         const sideNavOpen = document.querySelector(".hamburger");
         const tl = new TimelineMax({ paused: true, reversed: true });
-        if (window.matchMedia("(max-width: 580px)").matches) {
+        if (window.matchMedia && window.matchMedia("(max-width: 580px)").matches) {
             document.querySelectorAll('.js-menu').forEach((i) => {
                 tl.timeScale(1);
                 tl.fromTo('.nav', 1.0, {
@@ -40,9 +40,11 @@ function CircleMenu(data) {
                     }, 0.06, '-=0.25');
             });
         }
-        sideNavOpen.addEventListener('click', function () {
-            tl.reversed() ? tl.play() : tl.reverse();
-        });
+        if (sideNavOpen !== null) {
+            sideNavOpen.addEventListener('click', function () {
+                tl.reversed() ? tl.play() : tl.reverse();
+            });
+        }
     }, []);
     return (
         <div className="circle-menu">
