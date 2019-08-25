@@ -35,7 +35,11 @@ app.use((req, res, next) => {
 });
 
 app.use("/sitemap.html", errorRenderer);
-app.use(express.static(path.resolve(__dirname, "..", "build"), { maxAge: "30d" }));
+app.use(express.static(path.resolve(__dirname, "..", "build"), {
+    maxAge: "30d", setHeaders: function (res, path) {
+        res.setHeader("Expires", new Date(Date.now() + 2592000000 * 1000).toUTCString());
+    }
+}));
 
 const serverRenderer = (req, res, next) => {
     fs.readFile(path.resolve("./build/index.html"), "utf8", async (err, data) => {
@@ -102,6 +106,7 @@ const serverRenderer = (req, res, next) => {
 
 app.all("*", (req, res, next) => {
     res.header('Cache-Control', 'max-age=3600000');
+    res.header("Expires", new Date(Date.now() + 3600000 * 1000).toUTCString());
     next();
 });
 app.get("/", serverRenderer);
@@ -121,6 +126,7 @@ app.use(cors());
 
 app.all("/api/*", (req, res, next) => {
     res.header('Cache-Control', 'max-age=0');
+    res.header("Expires", new Date(Date.now() + 0).toUTCString());
     next();
 });
 
