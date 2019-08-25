@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import ResumeBox from "../components/resume/ResumeBox";
 import ResumePlaceholder from "../components/resume/ResumePlaceholder";
 import DataNotFound from "./DataNotFound";
+import baseUrl from "../components/BaseUrl";
 
 function Resume() {
   const [isLoading, setLoading] = useState(true);
@@ -12,7 +13,7 @@ function Resume() {
     const source = axios.CancelToken.source();
     async function fetchData() {
       try {
-        const url = window.location.origin + "/api/detail/resume";
+        const url = baseUrl(window) + "detail/resume";
         const responseData = await axios(url, {
           cancelToken: source.token
         });

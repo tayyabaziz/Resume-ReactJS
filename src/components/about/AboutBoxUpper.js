@@ -6,7 +6,7 @@ function AboutBoxUpper(data) {
   return (
     <React.Fragment>
       {/*About*/}
-      <div className="pb-2" id="hash">
+      <div className="pb-2">
         <PageTitle title={data.title}/>
         <AboutDescription description={data.description} />
       </div>

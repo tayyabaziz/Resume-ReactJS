@@ -20,7 +20,7 @@ function PortfolioItemUpper(data) {
       </Helmet>
       {/*PortfolioItemDetail*/}
       <PortfolioItemBackBtn history={data.history} />
-      <div className="pb-2 text-center" id="hash">
+      <div className="pb-2 text-center">
         <PageTitle title={projectData.title} category={projectData.category}/>
       </div>
       <PortfolioItemDescriptions projectData={projectData} />

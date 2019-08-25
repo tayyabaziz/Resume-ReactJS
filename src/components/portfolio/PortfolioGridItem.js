@@ -1,13 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSpring, animated } from "react-spring";
 
 function PortfolioGridItem(data) {
+    const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 450, friction: 40 } }));
     return (
         <React.Fragment>
             {/*Portfolio Item*/}
-            <figure className={"shadow gallery-grid__item " + data.portfolio_category_class}>
+            <animated.figure className={"shadow gallery-grid__item " + data.portfolio_category_class}
+                onMouseMove={() => set({ xys: [0, 0, 1.06] })}
+                onMouseLeave={() => set({ xys: [0, 0, 1] })}
+                style={{ transform: props.xys.interpolate((x, y, s) => `scale(${s})`) }}>
                 <div className="gallery-grid__image-wrap">
-                    <img className="gallery-grid__image cover lazyload " src={data.portfolio_image} data-zoom alt={data.portfolio_title} title={data.portfolio_title} />
+                    <img className="img-fluid" src={data.portfolio_image} data-zoom alt={data.portfolio_title} title={data.portfolio_title} />
                 </div>
                 <figcaption className="gallery-grid__caption border pb-1 pl-2">
                     <NavLink exact to={data.portfolio_link}>
@@ -15,7 +20,7 @@ function PortfolioGridItem(data) {
                         <span className="gallery-grid__category">{data.portfolio_category}</span>
                     </NavLink>
                 </figcaption>
-            </figure>
+            </animated.figure>
         </React.Fragment>
     );
 }

@@ -9,7 +9,7 @@ function ContactBoxResume(data) {
     <OverlayTrigger placement="top" overlay={<Tooltip>Download CV</Tooltip>}>
       <a className={"btn btn--blue-gradient " + [data.isSmall ? "btnResume" : ""]} target="_blank" rel="noopener noreferrer" href={resumeFile}>
         <FontAwesomeIcon icon={faDownload} />
-        {data.isSmall && !data.btnToggle ? "" : " Download CV"}
+        {(data.isSmall && !data.btnToggle) ? "" : " Download CV"}
       </a>
     </OverlayTrigger>
   );

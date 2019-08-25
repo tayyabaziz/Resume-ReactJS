@@ -5,6 +5,7 @@ import PortfolioPlaceholder from "../components/portfolio/PortfolioPlaceholder";
 import PortfolioGrid from "../components/portfolio/PortfolioGrid";
 import DataNotFound from "./DataNotFound";
 import PageTitle from "../components/PageTitle";
+import baseUrl from "../components/BaseUrl";
 
 function Portfolio(data) {
   const [isLoading, setLoading] = useState(true);
@@ -13,7 +14,7 @@ function Portfolio(data) {
     const source = axios.CancelToken.source();
     async function fetchData() {
       try {
-        const url = window.location.origin + "/api/project/";
+        const url = baseUrl(window) + "project/";
         const responseData = await axios(url, {
           cancelToken: source.token
         });

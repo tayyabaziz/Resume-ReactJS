@@ -3,6 +3,7 @@ import axios from "axios";
 import PortfolioItemPlaceholder from "../components/portfolio/PortfolioItemPlaceholder";
 import PortfolioItemDetailData from "../components/portfolio/PortfolioItemDetailData";
 import DataNotFound from "./DataNotFound";
+import baseUrl from "../components/BaseUrl";
 
 function PortfolioItemDetail(data) {
   const [isLoading, setLoading] = useState(true);
@@ -11,7 +12,7 @@ function PortfolioItemDetail(data) {
     async function fetchData(projectName) {
       const source = axios.CancelToken.source();
       try {
-        const url = window.location.origin + "/api/project/" + projectName;
+        const url = baseUrl(window) + "project/" + projectName;
         const responseData = await axios(url, {
           cancelToken: source.token
         });

@@ -47,7 +47,7 @@ function ResumePlaceholderUpper() {
 
   return (
     <React.Fragment>
-      <div className="pb-2" id="hash">
+      <div className="pb-2">
         <h1 className="title title--h1 title__separate">
           <Placeholder style={{ height: "36px", width: "100%" }}/>
         </h1>

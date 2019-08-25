@@ -16,7 +16,7 @@ function PortfolioItemPlaceholder(data) {
     <React.Fragment>
       {/*PortfolioItemDetail*/}
       <PortfolioItemBackBtnPlaceholder/>
-      <div className="pb-2 text-center" id="hash">
+      <div className="pb-2 text-center">
         <h1 className="title title--h1 title__separate">
           <Placeholder style={{ height: "36px"}}/>
         </h1>

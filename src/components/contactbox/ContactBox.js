@@ -14,7 +14,7 @@ function ContactBox() {
     var resizeTimer;
     function onResizeEvent() {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function () {
+      resizeTimer = setTimeout(() => {
         (window.innerWidth < 1200) ? setIsSmall(true) : setIsSmall(false);
       }, 50);
     }
@@ -28,7 +28,7 @@ function ContactBox() {
     <div className={"sidebar box sticky-column " + [isSmall ? [btnToggle ? "pb-0" : ""] : "pb-0"]} style={{ zIndex: 1 }}>
       <ContactBoxAvatar />
       <ContactBoxUpper />
-      <OverlayTrigger placement="top" overlay={<Tooltip>   {!btnToggle ? "Show More Information" : "Hide More Information"} </Tooltip>}>
+      <OverlayTrigger placement="top" overlay={<Tooltip>{!btnToggle ? "Show More Information" : "Hide More Information"} </Tooltip>}>
         <button onClick={() => setBtnToggle(!btnToggle)} className="btn btn--blue-gradient btnContactInfo d-block d-xl-none" >
           <FontAwesomeIcon icon={!btnToggle ? faAngleDoubleDown : faAngleDoubleUp} />
         </button>
