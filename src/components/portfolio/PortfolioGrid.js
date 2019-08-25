@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import mediumZoom from "medium-zoom";
 import Isotope from "isotope-layout";
 import ImagesLoaded from "imagesloaded";
 import PortfolioGridItem from "./PortfolioGridItem";
 import PortfolioGridFilter from "./PortfolioGridFilter";
 
 function PortfolioGrid(data) {
-    const [zoomEnabled, setZoomEnabled] = useState(false);
     const [grid, setGrid] = useState(false);
     useEffect(() => {
         if (!grid) {
@@ -59,14 +57,6 @@ function PortfolioGrid(data) {
         };
     }, [grid]);
 
-    function onLoadEvent() {
-        if (!zoomEnabled) {
-            mediumZoom("[data-zoom]", {
-                margin: 30
-            });
-            setZoomEnabled(true);
-        }
-    }
     const categories = data.projectData && data.projectData.map((element) => {
         return element.category;
     });
@@ -74,7 +64,7 @@ function PortfolioGrid(data) {
         <React.Fragment>
             <PortfolioGridFilter categories={categories} grid={grid} />
             {/*Content*/}
-            <div onLoad={() => onLoadEvent} className="gallery-grid js-masonry js-filter-container">
+            <div className="gallery-grid js-masonry js-filter-container">
                 <div className="gutter-sizer"></div>
                 {data.projectData && data.projectData.map((element, key) => {
                     return (<PortfolioGridItem key={key} portfolio_category_class={"category-" + element.category.toLowerCase()} portfolio_image={element.images[0]} portfolio_title={element.title} portfolio_category={element.category}portfolio_link={"/portfolio/"+ element.projectName.toLowerCase()+"/" }/>);
