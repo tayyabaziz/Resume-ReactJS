@@ -1,5 +1,5 @@
 import React from "react";
-import ReactHtmlParser from "react-html-parser";
+import reactHtmlParser from "react-html-parser";
 
 function PortfolioItemDescription(data) {
   return (
@@ -10,7 +10,7 @@ function PortfolioItemDescription(data) {
         {data.text ? data.text : ""}
       </label>
       {data.html ? <div className="col-12">
-        {ReactHtmlParser(data.html)}
+        {reactHtmlParser(data.html)}
       </div> : ""}
     </React.Fragment >
   );

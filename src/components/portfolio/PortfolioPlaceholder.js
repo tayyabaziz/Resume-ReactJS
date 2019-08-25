@@ -1,20 +1,19 @@
 import React from "react";
 import Placeholder from "../Placeholder";
+import PageTitlePlaceholder from "../PageTitlePlaceholder";
 
 function PortfolioPlaceholder() {
   const items = [];
   for (let index = 0; index < 9; index++) {
     items.push(<div className="col-12 col-md-6 col-lg-4 py-2" key={index}>
-      <Placeholder className="border shadow" style={{ width: "100%", height: "400px", borderRadius: "0.7rem"}}/>
+      <Placeholder className="border shadow" style={{ width: "100%", height: "400px", borderRadius: "0.7rem" }} />
     </div>);
   }
 
   return (
     <React.Fragment>
       <div className="pb-2">
-        <h1 className="title title--h1 title__separate">
-          <Placeholder style={{ height: "40px", width: "100%" }} />
-        </h1>
+        <PageTitlePlaceholder />
       </div>
       <div className="pb-2">
         <div className="row">

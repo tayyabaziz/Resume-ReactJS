@@ -1,6 +1,7 @@
 import React from "react";
 import Placeholder from "../Placeholder";
 import PortfolioItemBackBtnPlaceholder from "./PortfolioItemBackBtnPlaceholder";
+import PageTitlePlaceholder from "../PageTitlePlaceholder";
 
 function PortfolioItemPlaceholder(data) {
   const items = [];
@@ -17,9 +18,7 @@ function PortfolioItemPlaceholder(data) {
       {/*PortfolioItemDetail*/}
       <PortfolioItemBackBtnPlaceholder/>
       <div className="pb-2 text-center">
-        <h1 className="title title--h1 title__separate">
-          <Placeholder style={{ height: "36px"}}/>
-        </h1>
+        <PageTitlePlaceholder category="placeholder"/>
       </div>
       <div className="pb-5">
         <div className="row">

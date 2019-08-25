@@ -41,8 +41,12 @@ function Portfolio(data) {
 
   let ReactHTML = projectData ?
     <React.Fragment>
-      <PageTitle title="Portfolio" />
-      <PortfolioGrid projectData={projectData} />
+      <div className="pb-2">
+        <PageTitle title="Portfolio" />
+      </div>
+      <div className="pb-2">
+        <PortfolioGrid projectData={projectData} />
+      </div>
     </React.Fragment> : <DataNotFound />;
 
   return (

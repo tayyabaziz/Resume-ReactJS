@@ -1,5 +1,6 @@
 import React from "react";
 import Placeholder from "../Placeholder";
+import PageTitlePlaceholder from "../PageTitlePlaceholder";
 
 function ResumePlaceholderUpper() {
   const items = [];
@@ -48,9 +49,7 @@ function ResumePlaceholderUpper() {
   return (
     <React.Fragment>
       <div className="pb-2">
-        <h1 className="title title--h1 title__separate">
-          <Placeholder style={{ height: "36px", width: "100%" }}/>
-        </h1>
+        <PageTitlePlaceholder/>
       </div>
       <div className="pb-0">
         <div className="row">

@@ -1,8 +1,8 @@
 import React from "react";
 
-function ContactBoxBadge() {
+function ContactBoxBadge(data) {
   return (
-    <div className="badge badge--gray">Full Stack Web Developer</div>
+    <div className="badge badge--gray">{data.badge}</div>
   );
 }
 export default ContactBoxBadge;

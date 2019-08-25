@@ -1350,6 +1350,8 @@ iframe {
 
 .sticky-column.is_stuck {
   margin-top: 30px;
+  position: sticky;
+  top: 30px;
 }
 .sticky-column.is_stuck .avatar {
   margin-top: 0;

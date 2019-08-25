@@ -2,28 +2,26 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import PageTitle from "../PageTitle";
 import PortfolioItemBackBtn from "./PortfolioItemBackBtn";
-import PortfolioItemDescriptions from "./PortfolioItemDescriptions";
 
 function PortfolioItemUpper(data) {
-  const projectData = data.projectData;
+  const { title, category, metaDesc } = data;
 
   return (
     <React.Fragment>
       <Helmet>
-        <title>{projectData.title} - Tayyab Aziz</title>
+        <title>{title} - Tayyab Aziz</title>
         <link rel="canonical" href={window.location.href} />
-        <meta property="og:title" content={projectData.title + " - Tayyab Aziz"} />
-        <meta property="twitter:title" content={projectData.title + " - Tayyab Aziz"} />
-        <meta name="description" content={projectData.metaDesc} />
-        <meta name="og:description" content={projectData.metaDesc} />
-        <meta name="twitter:description" content={projectData.metaDesc} />
+        <meta property="og:title" content={title + " - Tayyab Aziz"} />
+        <meta property="twitter:title" content={title + " - Tayyab Aziz"} />
+        <meta name="description" content={metaDesc} />
+        <meta name="og:description" content={metaDesc} />
+        <meta name="twitter:description" content={metaDesc} />
       </Helmet>
       {/*PortfolioItemDetail*/}
       <PortfolioItemBackBtn history={data.history} />
       <div className="pb-2 text-center">
-        <PageTitle title={projectData.title} category={projectData.category}/>
+        <PageTitle title={title} category={category}/>
       </div>
-      <PortfolioItemDescriptions projectData={projectData} />
     </React.Fragment>
   );
 }

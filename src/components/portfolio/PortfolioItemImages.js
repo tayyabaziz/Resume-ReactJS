@@ -15,7 +15,7 @@ function PortfolioItemImages(data) {
   return (
     <div onLoad={onLoadEvent} className="row">
       {data.projectImages && data.projectImages.map((element) => {
-        return (<div className="col-12 col-md-6 col-lg-4 py-2" key={element} > <img className="portfolio-item-image img-fluid shadow" data-zoom src={element} alt={data.projectName} /></div>);
+        return (<div className="col-12 col-md-6 col-lg-4 py-2" key={element} > <img className="portfolio-item-image img-fluid shadow" data-zoom src={element} alt={data.title} /></div>);
       })}
     </div>
   );

@@ -2,11 +2,11 @@ import React from "react";
 import PortfolioItemImages from "./PortfolioItemImages";
 
 function PortfolioItemLower(data) {
-  const projectData = data.projectData;
+  const { images, title } = data;
 
   return (
     <div className="pb-3">
-      <PortfolioItemImages projectName={projectData.projectName} projectImages={projectData.images} />
+      <PortfolioItemImages title={title} projectImages={images} />
     </div>
   );
 }

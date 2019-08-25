@@ -11,15 +11,15 @@ function PortfolioGridItem(data) {
                 onMouseMove={() => set({ xys: [0, 0, 1.06] })}
                 onMouseLeave={() => set({ xys: [0, 0, 1] })}
                 style={{ transform: props.xys.interpolate((x, y, s) => `scale(${s})`) }}>
-                <div className="gallery-grid__image-wrap">
-                    <img className="img-fluid" src={data.portfolio_image} data-zoom alt={data.portfolio_title} title={data.portfolio_title} />
-                </div>
-                <figcaption className="gallery-grid__caption border pb-1 pl-2">
-                    <NavLink exact to={data.portfolio_link}>
+                <NavLink exact to={data.portfolio_link}>
+                    <div className="gallery-grid__image-wrap">
+                        <img className="img-fluid" src={data.portfolio_image} data-zoom alt={data.portfolio_title} title={data.portfolio_title} />
+                    </div>
+                    <figcaption className="gallery-grid__caption border pb-1 pl-2">
                         <h4 className="title gallery-grid__title">{data.portfolio_title}</h4>
                         <span className="gallery-grid__category">{data.portfolio_category}</span>
-                    </NavLink>
-                </figcaption>
+                    </figcaption>
+                </NavLink>
             </animated.figure>
         </React.Fragment>
     );
