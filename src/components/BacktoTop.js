@@ -4,7 +4,7 @@ import $ from "jquery";
 function BacktoTop() {
 
   function scrollToTop() {
-    var $backToTop = $('.back-to-top'),
+    var $backToTop = $(".back-to-top"),
       $showBackTotop = $(window).height();
 
     $backToTop.hide();
@@ -12,27 +12,27 @@ function BacktoTop() {
     $(window).scroll(function () {
       var windowScrollTop = $(window).scrollTop();
       if (windowScrollTop > $showBackTotop) {
-        $backToTop.fadeIn('slow');
+        $backToTop.fadeIn("slow");
       } else {
-        $backToTop.fadeOut('slow');
+        $backToTop.fadeOut("slow");
       }
     });
 
-    $backToTop.on('click', function (e) {
+    $backToTop.on("click", function (e) {
       e.preventDefault();
-      $(' body, html ').animate({ scrollTop: 0 }, 'slow');
+      $(" body, html ").animate({ scrollTop: 0 }, "slow");
     });
   }
   useEffect(() => {
-    // const backToTop = document.querySelector('.back-to-top');
+    // const backToTop = document.querySelector(".back-to-top");
     // const showBackTotop = window.innerHeight;
     // //backToTop.hide();
     // window.addEventListener("scroll", () => {
     //   var windowScrollTop = window.scrollTop();
     //   if (windowScrollTop > showBackTotop) {
-    //     //backToTop.fadeIn('slow');
+    //     //backToTop.fadeIn("slow");
     //   } else {
-    //     //backToTop.fadeOut('slow');
+    //     //backToTop.fadeOut("slow");
     //   }
     // });
     scrollToTop();

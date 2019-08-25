@@ -33,18 +33,6 @@ function Sidebar() {
         if (!contactData) {
             fetchData();
         }
-        addSticky();
-        var resizeTimer;
-        function onResizeEvent() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                addSticky();
-                (window.innerWidth < 1200) ? setIsSmall(true) : setIsSmall(false);
-            }, 50);
-        }
-        if (isLoading) {
-            window.addEventListener("resize", onResizeEvent);
-        }
 
         function addSticky() {
             const stickyColumn = document.querySelector(".sticky-column");
@@ -55,16 +43,28 @@ function Sidebar() {
                 if (stickyColumn !== null) {
                     stickyColumn.classList.remove("is_stuck");
                 }
-
             }
         }
 
+        addSticky();
         function onScrollEvent() {
             addSticky();
         }
 
         if (!isSmall) {
             window.addEventListener("scroll", onScrollEvent);
+        }
+
+        var resizeTimer;
+        function onResizeEvent() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                addSticky();
+                (window.innerWidth < 1200) ? setIsSmall(true) : setIsSmall(false);
+            }, 50);
+        }
+        if (isLoading) {
+            window.addEventListener("resize", onResizeEvent);
         }
 
         return () => {
