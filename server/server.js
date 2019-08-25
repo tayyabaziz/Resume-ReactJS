@@ -106,7 +106,7 @@ const serverRenderer = (req, res, next) => {
 
 app.all("*", (req, res, next) => {
     res.header('Cache-Control', 'max-age=3600000');
-    res.header("Expires", new Date(Date.now() + 3600000 * 1000).toUTCString());
+    res.header("Expires", new Date(Date.now() + 3600000).toUTCString());
     next();
 });
 app.get("/", serverRenderer);
