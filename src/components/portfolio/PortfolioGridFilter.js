@@ -6,7 +6,6 @@ function PortfolioGridFilter(data) {
     }
 
     function onFilterChange(e) {
-        console.log(e)
         e.preventDefault();
         e.persist();
         document.querySelectorAll(".filter__item").forEach((element) => {
@@ -35,7 +34,7 @@ function PortfolioGridFilter(data) {
     return (
         <React.Fragment>
             {/*Filter*/}
-            <div className="select">
+            <div className="select ">
                 <span className="placeholder" onClick={() => onOpen()}>Select category</span>
                 <ul className="filter">
                     <li className="filter__item">Category</li>

@@ -66,10 +66,8 @@
 
 ------------------------------------------------ */
 @import url(bootstrap.min.css);
-@import url(swiper.min.css);
 @import url("https://fonts.googleapis.com/css?family=Archivo:400,400i,500,500i,600,600i,700,700i&amp;display=swap");
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,900&amp;display=swap");
-@import url(../icons/icomoon.css);
 .icon {
   background-size: contain;
   background-repeat: no-repeat;
@@ -1771,12 +1769,11 @@ iframe {
     right: 2px;
     top: 50%;
     transform: translateY(-50%);
-    font-family: 'icomoon';
-    content: '\e90e';
+    content: '\02C5';
     z-index: 10;
   }
   .select.is-open .placeholder:after {
-    content: '\e90f';
+    content: '\02C4';
   }
   .select.is-open ul {
     display: block;
