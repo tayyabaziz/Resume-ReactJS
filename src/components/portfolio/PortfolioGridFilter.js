@@ -6,6 +6,7 @@ function PortfolioGridFilter(data) {
     }
 
     function onFilterChange(e) {
+        console.log(e)
         e.preventDefault();
         e.persist();
         document.querySelectorAll(".filter__item").forEach((element) => {
@@ -35,12 +36,12 @@ function PortfolioGridFilter(data) {
         <React.Fragment>
             {/*Filter*/}
             <div className="select">
-                <span className="placeholder" onClick={() => onOpen}>Select category</span>
+                <span className="placeholder" onClick={() => onOpen()}>Select category</span>
                 <ul className="filter">
                     <li className="filter__item">Category</li>
-                    <li className="filter__item active" data-filter="*" onClick={() => onFilterChange}><a className="filter__link active" href="#/">All</a></li>
+                    <li className="filter__item active" data-filter="*" onClick={(e) => onFilterChange(e)}><a className="filter__link active" href="#/">All</a></li>
                     {categories.map((element, key) => {
-                        return (<li key={key} className="filter__item" data-filter={".category-" + element.toLowerCase()} onClick={() => onFilterChange}><a className="filter__link" href="#/">{element}</a></li>);
+                        return (<li key={key} className="filter__item" data-filter={".category-" + element.toLowerCase()} onClick={(e) => onFilterChange(e)}><a className="filter__link" href="#/">{element}</a></li>);
                     })}
                 </ul>
                 <input type="hidden" name="changemetoo" />

@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./assets/styles/style.css";
-import "./assets/demo/style-demo.css";
 
 ReactDOM.hydrate(<App />, document.getElementById("root"));
 
