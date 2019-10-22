@@ -17,9 +17,6 @@ COPY package*.json ./
 # Install production dependencies.
 RUN npm install --only=production
 
-# expose port 3000 for our server to run on
-EXPOSE 3000
-
 # Copy local code to the container image.
 COPY . ./
 
