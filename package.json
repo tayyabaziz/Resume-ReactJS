@@ -1,5 +1,8 @@
 {
   "name": "tayyabaziz-reactjs",
+  "description": "My Portfolio",
+  "author": "Tayyab Aziz",
+  "license": "MIT",
   "version": "1.0.0",
   "dependencies": {
     "@babel/preset-env": "^7.5.5",
@@ -36,7 +39,8 @@
     "react-scripts": "3.0.1",
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.2.2",
-    "serve": "^11.1.0"
+    "serve": "^11.1.0",
+    "typescript": "^3.6.4"
   },
   "scripts": {
     "start": "npm run build && node ./server/index",
