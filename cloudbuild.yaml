@@ -4,4 +4,4 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/my-portfolio-256707/myporfolio:latest']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'myporfolio', '--image=gcr.io/my-portfolio-256707/myporfolio:latest', '--region=europe-west1']
+  args: ['beta', 'run', 'deploy', 'myporfolio', '--image=gcr.io/my-portfolio-256707/myporfolio:latest', '--platform=managed', '--region=europe-west1']
