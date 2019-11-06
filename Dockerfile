@@ -12,10 +12,11 @@ COPY package*.json ./
 
 # Install production dependencies.
 RUN npm install --only=production \
-	&& npm audit fix
+	&& npm audit fix \
+	&& npm run build
 
 # Copy local code to the container image.
 COPY . ./
 
 # Run the web service on container startup.
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "startservice" ]

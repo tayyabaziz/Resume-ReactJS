@@ -43,6 +43,7 @@
   },
   "scripts": {
     "start": "npm run build && node ./server/index",
+    "startservice": "node ./server/index",
     "startdev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
