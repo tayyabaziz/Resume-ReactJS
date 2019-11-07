@@ -37,7 +37,8 @@ app.use((req, res, next) => {
 app.use("/sitemap.html", errorRenderer);
 app.use(express.static(path.resolve(__dirname, "..", "build"), {
     maxAge: "30d", setHeaders: function (res, path) {
-        res.setHeader("Expires", new Date(Date.now() + 2592000000 * 1000).toUTCString());
+        res.setHeader('Cache-Control', 'max-age=2592000');
+        res.setHeader("Expires", new Date(Date.now() + 2592000 * 1000).toUTCString());
     }
 }));
 
