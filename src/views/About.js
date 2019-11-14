@@ -8,7 +8,7 @@ import DataNotFound from "./DataNotFound";
 import baseUrl from "../components/BaseUrl";
 
 function About () {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === "production") {
     ReactGA.pageview("/home");
   }
   const [isLoading, setLoading] = useState(true);

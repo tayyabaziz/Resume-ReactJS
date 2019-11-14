@@ -7,7 +7,7 @@ import DataNotFound from "./DataNotFound";
 import baseUrl from "../components/BaseUrl";
 
 function PortfolioItemDetail (data) {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === "production") {
     ReactGA.pageview("/portfolio/" + data.match.params.projectName);
   }
   const [isLoading, setLoading] = useState(true);

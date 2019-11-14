@@ -8,7 +8,7 @@ import DataNotFound from "./DataNotFound";
 import baseUrl from "../components/BaseUrl";
 
 function Resume () {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === "production") {
     ReactGA.pageview("/resume");
   }
   const [isLoading, setLoading] = useState(true);

@@ -6,7 +6,7 @@ import SVG from "./components/SVG";
 import MainContent from "./components/MainContent";
 
 function App () {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === "production") {
     ReactGA.initialize("UA-112773110-1");
   }
   return (
