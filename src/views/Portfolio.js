@@ -9,7 +9,9 @@ import PageTitle from "../components/PageTitle";
 import baseUrl from "../components/BaseUrl";
 
 function Portfolio (data) {
-  ReactGA.pageview("/portfolio");
+  if (process.env.NODE_ENV === 'production') {
+    ReactGA.pageview("/portfolio");
+  }
   const [isLoading, setLoading] = useState(true);
   const [projectData, setProject] = useState(false);
   useEffect(() => {

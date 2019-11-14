@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import axios from "axios";
 import PortfolioItemPlaceholder from "../components/portfolio/PortfolioItemPlaceholder";
 import PortfolioItemDetailData from "../components/portfolio/PortfolioItemDetailData";
 import DataNotFound from "./DataNotFound";
 import baseUrl from "../components/BaseUrl";
 
-function PortfolioItemDetail(data) {
+function PortfolioItemDetail (data) {
+  if (process.env.NODE_ENV === 'production') {
+    ReactGA.pageview("/portfolio/" + data.match.params.projectName);
+  }
   const [isLoading, setLoading] = useState(true);
   const [projectData, setProject] = useState(false);
   useEffect(() => {
