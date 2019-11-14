@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import ResumeBox from "../components/resume/ResumeBox";
@@ -6,7 +7,8 @@ import ResumePlaceholder from "../components/resume/ResumePlaceholder";
 import DataNotFound from "./DataNotFound";
 import baseUrl from "../components/BaseUrl";
 
-function Resume() {
+function Resume () {
+  ReactGA.pageview('/resume');
   const [isLoading, setLoading] = useState(true);
   const [resumeData, setResume] = useState(false);
   useEffect(() => {

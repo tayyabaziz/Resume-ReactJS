@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import AboutBox from "../components/about/AboutBox";
@@ -6,7 +7,8 @@ import AboutPlaceholder from "../components/about/AboutPlaceholder";
 import DataNotFound from "./DataNotFound";
 import baseUrl from "../components/BaseUrl";
 
-function About() {
+function About () {
+  ReactGA.pageview('/home');
   const [isLoading, setLoading] = useState(true);
   const [aboutData, setAbout] = useState(false);
   useEffect(() => {

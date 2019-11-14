@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactGA from "react-ga";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import PortfolioPlaceholder from "../components/portfolio/PortfolioPlaceholder";
@@ -7,7 +8,8 @@ import DataNotFound from "./DataNotFound";
 import PageTitle from "../components/PageTitle";
 import baseUrl from "../components/BaseUrl";
 
-function Portfolio(data) {
+function Portfolio (data) {
+  ReactGA.pageview('/portfolio');
   const [isLoading, setLoading] = useState(true);
   const [projectData, setProject] = useState(false);
   useEffect(() => {
