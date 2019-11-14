@@ -8,7 +8,7 @@ import DataNotFound from "./DataNotFound";
 import baseUrl from "../components/BaseUrl";
 
 function Resume () {
-  ReactGA.pageview('/resume');
+  ReactGA.pageview("/resume");
   const [isLoading, setLoading] = useState(true);
   const [resumeData, setResume] = useState(false);
   useEffect(() => {

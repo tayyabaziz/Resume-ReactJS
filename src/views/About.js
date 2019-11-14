@@ -8,7 +8,7 @@ import DataNotFound from "./DataNotFound";
 import baseUrl from "../components/BaseUrl";
 
 function About () {
-  ReactGA.pageview('/home');
+  ReactGA.pageview("/home");
   const [isLoading, setLoading] = useState(true);
   const [aboutData, setAbout] = useState(false);
   useEffect(() => {

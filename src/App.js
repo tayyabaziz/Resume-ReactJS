@@ -6,7 +6,7 @@ import SVG from "./components/SVG";
 import MainContent from "./components/MainContent";
 
 function App () {
-  ReactGA.initialize('UA-112773110-1');
+  ReactGA.initialize("UA-112773110-1");
   return (
     <React.Fragment>
       <Preloader />
