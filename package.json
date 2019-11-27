@@ -40,6 +40,7 @@
     "react-scripts": "3.0.1",
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.2.2",
+    "request": "^2.88.0",
     "serve": "^11.1.0"
   },
   "scripts": {
