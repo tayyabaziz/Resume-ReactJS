@@ -6,7 +6,6 @@ import axios from "axios";
 import cors from "cors";
 import compression from "compression";
 import "./db.config";
-var request = require('request');
 
 if (process.env.NODE_ENV !== "production") {
     dotenv.config();
@@ -111,20 +110,6 @@ app.all("*", (req, res, next) => {
     res.header("Expires", new Date(Date.now() + 3600000).toUTCString());
     next();
 });
-
-const scrapCall = (req, res, next) => {
-    request(req.query.url, (error, response, body) => {
-        console.log(body);
-        if (!error && response.statusCode === 200) {
-            res.status(200).json(body);
-        }
-        else {
-            res.status(404).json("Not Found");
-        }
-    });
-};
-
-app.get("/scrap", scrapCall);
 app.get("/", serverRenderer);
 app.get("/resume", serverRenderer);
 app.get("/portfolio", serverRenderer);
