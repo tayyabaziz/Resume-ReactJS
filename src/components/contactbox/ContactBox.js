@@ -15,7 +15,7 @@ function ContactBox(data) {
       <ContactBoxAvatar profileImage={profileImage} />
       <ContactBoxUpper title={title} badge={badge} socialLinks={socialLinks} />
       <OverlayTrigger placement="top" overlay={<Tooltip>{!btnToggle ? "Show More Information" : "Hide More Information"} </Tooltip>}>
-        <button onClick={() => setBtnToggle(!btnToggle)} className="btn btn--blue-gradient btnContactInfo d-block d-xl-none" >
+        <button aria-label="Download Resume" onClick={() => setBtnToggle(!btnToggle)} className="btn btn--blue-gradient btnContactInfo d-block d-xl-none" >
           <FontAwesomeIcon icon={!btnToggle ? faAngleDoubleDown : faAngleDoubleUp} />
         </button>
       </OverlayTrigger>
