@@ -6,7 +6,7 @@ function Footer(data) {
             {/*Footer*/}
             <footer className="box my-4 footer text-dark">
                 © {(new Date().getFullYear())} Tayyab Aziz | 
-                <a className="ml-1 btn-link" href="/sitemap/">Site map</a>
+                <a className="ml-1 btn-link" aria-label="Site map" href="/sitemap/">Site map</a>
             </footer>
         </React.Fragment>
     );
